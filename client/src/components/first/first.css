@@ -1,0 +1,86 @@
+.first {
+  height: calc(100vh - 60px);
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+    url(../images/images/IMG_3571.JPG);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  color: white;
+  justify-content: center;
+  flex-direction: column;
+}
+.not {
+  display: none;
+}
+.first p {
+  font-size: 60px;
+  font-weight: 700;
+}
+
+.firstBy {
+  font-size: 12px;
+}
+
+.firstDec {
+  font-size: 12px;
+}
+
+.first h3 {
+  margin: 20px 0;
+}
+
+.firstWho {
+  display: flex;
+  list-style: none;
+}
+
+.firstWhoItem {
+  margin: 0 20px;
+  cursor: pointer;
+  text-transform: capitalize;
+  border: 1px solid white;
+  padding: 7px 20px;
+  transition: 0.5s ease;
+}
+
+.firstWhoItem:hover {
+  background: white;
+  color: black;
+}
+
+@media (max-width: 700px) {
+  .first {
+    width: 100%;
+  }
+  .first p {
+    font-size: 40px;
+    margin: 0;
+    text-align: center;
+  }
+
+  .firstBy {
+    display: none;
+  }
+
+  .not {
+    display: block;
+    font-weight: 700;
+  }
+
+  .firstWho {
+    display: block;
+  }
+
+  .firstWhoItem {
+    margin: 20px 0;
+    width: 250px;
+    text-align: center;
+  }
+
+  .firstDec {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 10px;
+  }
+}
