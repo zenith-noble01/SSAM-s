@@ -1,20 +1,22 @@
 import First from "./components/first/First";
-import About from "./components/about/About";
+import Members from "./components/members/Members";
 import Nav from "./components/Nav/Nav";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import AboutUs from "./components/aboutus/AboutUs"
 import Contact from "./components/contact/Contact";
+import "./app.css"
 
 
 function App() {
   return (
-    <Router >
+    <div className="app">
       <Nav />
-      <Switch>
-        <Route exact path="/" component={First} />
-        <Route path="/about" component={About} />
-        <Route path="/contact" component={Contact} />
-      </Switch>
-    </Router>
+      <First />
+      <div className="padding__divs">
+        <AboutUs />
+        <Members />
+        <Contact />
+      </div>
+    </div>
   );
 }
 

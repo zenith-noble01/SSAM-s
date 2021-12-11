@@ -1,0 +1,49 @@
+:root{
+    --main-color:#d3ad7f;
+    --black:#13131a;
+    --bg:#010103;
+    --border:.1rem solid rgba(255,255,255,.3);
+}
+
+a{
+    text-decoration: none;
+}
+
+.app{
+    background: var(--bg);
+}
+
+.padding__divs{
+    padding: 0 8% 0 5%;
+}
+
+.heading{
+    text-align: center;
+    color:#fff;
+    text-transform: uppercase;
+    font-size: 30px;
+    margin: 30px 0;
+}
+
+.heading span{
+    color:var(--main-color);
+    text-transform: uppercase;
+}
+
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding:.9rem 3rem;
+    font-size: 1.7rem;
+    color:#fff;
+    background: var(--main-color);
+    cursor: pointer;
+    transition: 0.5s ease;
+    outline: none;
+    border: none;
+}
+
+.btn:hover{
+    letter-spacing: .2rem;
+}
+

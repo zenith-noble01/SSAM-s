@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { NavLink } from "react-router-dom"
 import "./nav.css"
 
 const Nav = () => {
@@ -10,13 +9,16 @@ const Nav = () => {
             <div className="navCenter">
                 <ul className={nav ? "CenterLinksm" : "CenterLinks"}>
                     <li className="centerLinkItems" onClick={() => setNav(false)}>
-                        <NavLink exact className="link" to="/">Home</NavLink>
+                        <a href="#home" className="link" >Home</a>
                     </li>
                     <li className="centerLinkItems" onClick={() => setNav(false)}>
-                        <NavLink className="link" to="/about">About</NavLink>
+                        <a href="#about" className="link">About</a>
                     </li>
                     <li className="centerLinkItems" onClick={() => setNav(false)}>
-                        <NavLink className="link" to="/contact">Contact us</NavLink>
+                        <a href="#members" className="link">Members</a>
+                    </li>
+                    <li className="centerLinkItems" onClick={() => setNav(false)}>
+                        <a href="#contact" className="link">Contact us</a>
                     </li>
                 </ul>
             </div>
@@ -26,9 +28,13 @@ const Nav = () => {
                     <li>Register</li>
                 </ul>
             </div>
-            <button className="btn" onClick={() => setNav(!nav)}>{nav ? "close" : "open"}</button>
+            {/* <button className="vcccccf" onClick={() => setNav(!nav)}>{nav ? "close" : "open"}</button> */}
         </div>
     )
 }
 
 export default Nav
+
+
+// films to be downloaded
+// 12 strong, southpaw

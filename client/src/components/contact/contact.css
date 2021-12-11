@@ -1,5 +1,56 @@
-.contact {
+.contact{
+  height: 460px;
+}
+
+.contact .row{
+  display: flex;
+  background:var(--black);
+  height: 100%;
   width: 100%;
-  height: calc(100vh - 60px);
-  background: brown;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.contact .row .map{
+  width: 50%;
+  object-fit: cover;
+  padding: 20px;
+}
+
+.contact .row form{
+  width: 50%;
+  padding:5rem 2rem;
+  text-align: center;
+}
+
+.contact .row form h3{
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  color:#fff;
+}
+
+.contact .row form .inputBox{
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background:var(--bg);
+  border:var(--border);
+}
+
+.contact .row form .inputBox span{
+  color:#fff;
+  font-size: 20px;
+  padding-left: 2rem;
+}
+
+.contact .row form .inputBox input{
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  color:#fff;
+  text-transform: none;
+  background:none;
+  outline: none;
+  border: none;
 }
