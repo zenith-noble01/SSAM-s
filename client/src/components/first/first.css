@@ -1,6 +1,7 @@
 .first {
   height: calc(100vh - 60px);
-  background: url(../images/images/home-img.jpeg);
+  /* background: url(../images/images/home-img.jpeg); */
+  background: url("https://9mmwallpapers.com/wp-content/uploads/Black-Laptop-Wallpaper-HD.jpg");
   background-position: center;
   background-size: cover;
   display: flex;
