@@ -101,3 +101,35 @@
   font-weight: bold;
   font-size: 15px;
 }
+
+
+@media (max-width: 700px) {
+  .members__wrapper{
+    flex-direction: column;
+  }
+
+  .wrapper__leftside{
+    width: 100%;
+  }
+
+  .wrapper__Rightside{
+    width: 100%;
+  }
+
+  .member__content{
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .member__content:nth-child(1){
+    margin-right: 0;
+    /* margin-bottom: ; */
+  }
+  
+  
+  .member__content:nth-child(3){
+    margin-right: 0;
+  }
+  
+
+}

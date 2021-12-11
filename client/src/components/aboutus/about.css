@@ -33,3 +33,35 @@
     padding:1rem 0;
     line-height: 1.8;
 }
+
+@media (max-width: 700px) {
+    .aboutus .row{
+        height: 100%;
+    }
+
+    .aboutus .row .image{
+        width: 100%;
+    }
+
+    .aboutus .row .image img{
+        height: 200px;
+    }
+
+    .aboutus .row .content{
+        width: 100%;
+        padding: 20px;
+    }
+    
+    .aboutus .row .content h3{
+        font-size: 30px;
+        color:#fff;
+        text-align: center;
+    }
+    
+    .aboutus .row .content p{
+        font-size: 15px;
+        color:#ccc;
+        padding:1rem 0;
+        line-height: 1.8;
+    }
+}

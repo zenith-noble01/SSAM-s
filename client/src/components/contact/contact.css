@@ -54,3 +54,18 @@
   outline: none;
   border: none;
 }
+
+@media (max-width: 700px) {
+  .contact{
+    height: 100%;
+  }
+  .contact .row{
+    flex-wrap: wrap;
+  }
+  .contact .row form{
+    width: 100%;
+    padding:5rem 2rem;
+    text-align: center;
+  }
+  
+}
