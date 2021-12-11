@@ -67,5 +67,15 @@
     padding:5rem 2rem;
     text-align: center;
   }
-  
+
+  .contact .row form h3{
+    text-transform: uppercase;
+    font-size: 30px;
+    color:#fff;
+  }
+
+  .btn{
+    padding: 10px 20px;
+    font-size: 10px;
+  }
 }
