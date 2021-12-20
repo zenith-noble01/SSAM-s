@@ -3,11 +3,12 @@ import "./nav.css"
 
 const Nav = () => {
     const [nav, setNav] = useState(false)
+    
     return (
         <div className="nav">
             <div className="navLeft">SSAM's</div>
             <div className="navCenter">
-                <ul className={nav ? "CenterLinksm" : "CenterLinks"}>
+                <ul className="CenterLinks">
                     <li className="centerLinkItems" onClick={() => setNav(false)}>
                         <a href="#home" className="link" >Home</a>
                     </li>
@@ -28,7 +29,11 @@ const Nav = () => {
                     <li>Register</li>
                 </ul>
             </div>
-            {/* <button className="vcccccf" onClick={() => setNav(!nav)}>{nav ? "close" : "open"}</button> */}
+            <div className="menu">
+                <span className={nav? "" : ""}></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     )
 }

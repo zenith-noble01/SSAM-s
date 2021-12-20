@@ -1,5 +1,5 @@
 import React from 'react'
-import zenith from "../images/images/IMG_3440.JPG"
+import zenith from "../images/IMG_3440.JPG"
 import "./about.css"
 
 const AboutUs = () => {
@@ -14,7 +14,7 @@ const AboutUs = () => {
                     <h3>what makes our work special?</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus qui ea ullam, enim tempora ipsum fuga alias quae ratione a officiis id temporibus autem? Quod nemo facilis cupiditate. Ex, vel?</p>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit amet enim quod veritatis, nihil voluptas culpa! Neque consectetur obcaecati sapiente?</p>
-                    <a href="mils" class="btn">learn more</a>
+                    <a href="#home" class="btn">learn more</a>
                 </div>
             </div>
         </section>

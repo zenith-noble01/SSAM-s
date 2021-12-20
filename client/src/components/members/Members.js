@@ -1,7 +1,7 @@
 import "./members.css"
-import zenith from '../images/images/pic-3.png'
-import ketsia from '../images/images/pic-2.png'
-import precious from '../images/images/pic-1.png'
+import zenith from '../images/zenith.png'
+import ketsia from '../images/ketsia.png'
+import precious from '../images/pic-1.png'
 
 const Members = () => {
     return (
