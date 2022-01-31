@@ -1,0 +1,9 @@
+.feedback {
+  border: var(--border);
+  width: 49%;
+  height: 100%;
+  background: var(--light-black);
+
+  border-radius: 10px;
+  transition: var(--trans);
+}

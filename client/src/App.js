@@ -1,22 +1,26 @@
-// import First from "./components/first/First";
-// import Members from "./components/members/Members";
-// import Nav from "./components/Nav/Nav";
-// import AboutUs from "./components/aboutus/AboutUs"
-// import Contact from "./components/contact/Contact";
 import "./app.css";
-// import Auth from "./Context/Parent/pages/auth/Auth";
-import Slide from "./Context/Parent/Components/Slides/Slide";
+import Navbar from "./Context/Parent/Components/Navbar/Navbar";
+import Home from "./Context/Parent/pages/home/Home";
+import Auth from "./Context/Parent/pages/auth/Auth";
+// import Slide from "./Context/Parent/Components/Slides/Slide";
+import { Routes, Route } from "react-router-dom";
+import Context from "./context/Context";
+import Nav from "./components/Nav/Nav";
+import Message from "./Context/Parent/Components/Message/Message";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
+  const user = true;
   return (
     <div className="app">
-      <Slide />
-      {/* <First />
-      <div className="padding__divs">
-        <AboutUs />
-        <Members />
-        <Contact />
-      </div> */}
+      {user ? <Navbar /> : <Nav />}
+      <Routes>
+        <Route index element={<Context />} />
+        <Route path="Home" element={<Home />} />
+        <Route path="Auth" element={<Auth />} />
+        <Route path="Message" element={<Message />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </div>
   );
 }

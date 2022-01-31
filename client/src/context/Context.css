@@ -1,0 +1,7 @@
+.contextContainer {
+  flex-direction: column;
+  display: flex;
+  padding: 0 5%;
+  background: var(--bg);
+  height: 100%;
+}

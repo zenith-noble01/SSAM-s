@@ -4,9 +4,13 @@ const BtnSlide = ({ direction, moveSlide }) => {
   return (
     <button
       className={direction === "next" ? "next" : "prev"}
-      onclick={moveSlide}
+      onClick={moveSlide}
     >
-      {direction === "next" ? "next" : "prev"}
+      {direction === "next" ? (
+        <i className="fa fa-chevron-left"></i>
+      ) : (
+        <i className="fa fa-chevron-right"></i>
+      )}
     </button>
   );
 };

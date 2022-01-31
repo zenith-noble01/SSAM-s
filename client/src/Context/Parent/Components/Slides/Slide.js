@@ -38,18 +38,18 @@ const Slide = () => {
               <p>{item.text}</p>
             </div>
           ))}
-          <BtnSlide moveSlide={nextSlide} direction={"next"} />
+          <BtnSlide moveSlide={nextSlide} direction={"prev"} />
           <div className="dotscontainer">
             {Array.from({ length: 3 }).map((item, index) => (
               <div
                 className={
                   slideIndex === index + 1 ? "dots activeDots" : "dots"
                 }
-                onclick={() => moveDot(index + 1)}
+                onClick={() => moveDot(index + 1)}
               ></div>
             ))}
           </div>
-          <BtnSlide moveSlide={prevSlide} direction={"prev"} />
+          <BtnSlide moveSlide={prevSlide} direction={"next"} />
         </div>
         <div className="bottom_slide_container">
           <p>Let's get you set up and ready to use School Cop</p>

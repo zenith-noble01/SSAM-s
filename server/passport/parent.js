@@ -1,15 +1,13 @@
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const GithubStrategy = require("passport-github2").Strategy;
 const passport = require("passport");
+const Parent = require("../model/Parent/parent");
 
-const GOOGLE_CLIENT_ID = "your id";
-const GOOGLE_CLIENT_SECRET = "your id";
+const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 
-GITHUB_CLIENT_ID = "your id";
-GITHUB_CLIENT_SECRET = "your id";
-
-FACEBOOK_APP_ID = "your id";
-FACEBOOK_APP_SECRET = "your id";
+GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
+GITHUB_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 
 passport.use(
   new GoogleStrategy(
@@ -18,8 +16,27 @@ passport.use(
       clientSecret: GOOGLE_CLIENT_SECRET,
       callbackURL: "/auth/google/callback",
     },
-    function (accessToken, refreshToken, profile, done) {
-      done(null, profile);
+    async (accessToken, refreshToken, profile, done) => {
+      const newParent = {
+        googleId: profile.id,
+        displayName: profile.displayName,
+        firstName: profile.name.givenName,
+        lastName: profile.name.familyName,
+        image: profile.photos[0].value,
+      };
+
+      try {
+        let parent = await Parent.findOne({ googleId: profile.id });
+
+        if (parent) {
+          done(null, parent);
+        } else {
+          parent = await Parent.create(newParent);
+          done(null, parent);
+        }
+      } catch (err) {
+        console.error(err);
+      }
     }
   )
 );
@@ -31,16 +48,35 @@ passport.use(
       clientSecret: GITHUB_CLIENT_SECRET,
       callbackURL: "/auth/github/callback",
     },
-    function (accessToken, refreshToken, profile, done) {
-      done(null, profile);
+    async (accessToken, refreshToken, profile, done) => {
+      const newParent = {
+        googleId: profile.id,
+        displayName: profile.displayName,
+        firstName: profile.name.givenName,
+        lastName: profile.name.familyName,
+        image: profile.photos[0].value,
+      };
+
+      try {
+        let parent = await Parent.findOne({ googleId: profile.id });
+
+        if (parent) {
+          done(null, parent);
+        } else {
+          parent = await Parent.create(newParent);
+          done(null, parent);
+        }
+      } catch (err) {
+        console.error(err);
+      }
     }
   )
 );
 
-passport.serializeUser((user, done) => {
-  done(null, user);
+passport.serializeUser((parent, done) => {
+  done(null, parent.id);
 });
 
-passport.deserializeUser((user, done) => {
-  done(null, user);
+passport.deserializeUser((id, done) => {
+  Parent.findById(id, (err, parent) => done(err, parent));
 });

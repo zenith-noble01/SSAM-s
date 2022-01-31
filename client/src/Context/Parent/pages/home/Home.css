@@ -1,0 +1,21 @@
+.home {
+  display: flex;
+  padding: 13px 10% 10px 10%;
+  height: calc(100vh - 70px);
+  /* background: red; */
+}
+
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  margin-left: 20px;
+}
+
+.bottom__homeContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50%;
+}

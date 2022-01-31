@@ -1,0 +1,44 @@
+.sidebar {
+  display: flex;
+  border: var(--border);
+  width: 200px;
+  height: 200px;
+  min-width: 200px;
+  border-radius: 10px;
+  color: var(--text-color);
+  background: var(--light-black);
+  transition: var(--trans);
+  padding: 10px;
+}
+
+.recent,
+.header {
+  font-weight: bold;
+}
+
+.recent__sidebar {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.recent__sidebar .recentLinks,
+.group__links {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  padding: 5px 3px 5px 10px;
+}
+
+.recent__sidebar .recentLinks p,
+.groups .group__links p {
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  margin-left: 5px;
+}

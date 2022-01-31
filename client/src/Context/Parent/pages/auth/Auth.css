@@ -58,7 +58,7 @@
   left: 0;
   width: 50%;
   height: 100%;
-  background: red;
+  background: var(--black);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -68,7 +68,7 @@
   overflow: hidden;
 }
 
-.forms .activeSide {
+.forms.activeSide {
   left: 50%;
 }
 
@@ -76,12 +76,12 @@
   position: absolute;
   left: 0;
   width: 100%;
-  padding: 50px;
+  padding: 20px;
   transition: var(--trans);
 }
 
 .forms .signInForm {
-  transition-delay: 0.25s;
+  transition-delay: 0.2s;
 }
 .forms .signUpForm {
   left: 100%;
@@ -90,7 +90,7 @@
 
 .forms.activeSide .signUpForm {
   left: 0;
-  transition-delay: 0.25s;
+  transition-delay: 0.2s;
 }
 
 .forms.activeSide .signInForm {
@@ -125,6 +125,86 @@
   cursor: pointer;
 }
 
+.oauth {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.oauth .lineContainer {
+  display: flex;
+  position: relative;
+  width: 100%;
+  background: blue;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.oauth .lineContainer .line {
+  height: 1px;
+  width: 100%;
+  background: var(--text-color);
+}
+
+.oauth .lineContainer .or {
+  height: 50px;
+  width: 50px;
+  background: var(--black);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.oauthBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.oauth__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  color: var(--text-color);
+  cursor: pointer;
+  font-weight: bold;
+  width: 32%;
+}
+
+.oauth__btn i {
+  margin-right: 3px;
+}
+
+.google {
+  background: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.github {
+  background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.facebook {
+  background: blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media (max-width: 900px) {
   .authContainer {
     max-width: 400px;
@@ -154,11 +234,17 @@
   }
 
   .box.signIn {
-    left: 0;
+    top: 0;
   }
 
   .forms.activeSide {
     left: 0;
     top: 150px;
+  }
+}
+
+@media (max-width: 300px) {
+  .oauthBtn {
+    flex-wrap: wrap;
   }
 }

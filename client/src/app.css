@@ -1,13 +1,14 @@
 :root {
   --main-color: #d3ad7f;
-  --black: #13131a;
+  --black: #333;
   --bg: #010103;
   --text-color: whitesmoke;
   --border: 0.1rem solid rgba(255, 255, 255, 0.3);
   --trans: 0.5s ease-in-out;
   --color: rgba(255, 255, 255, 0.3);
-  --shadow: 0 5px 45px rgba(238, 229, 229, 0.3);
-  --light-black: #333;
+  --shadow: 0 2px 15px rgba(238, 229, 229, 0.3);
+  --light-black: #444;
+  --light-white: #888;
 }
 
 a {

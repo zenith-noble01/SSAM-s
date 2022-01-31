@@ -1,0 +1,8 @@
+.calender {
+  border: var(--border);
+  width: 49%;
+  background: var(--light-black);
+  border-radius: 10px;
+  transition: var(--trans);
+  height: 100%;
+}
