@@ -27,7 +27,11 @@
   display: flex;
   align-items: center;
   margin-bottom: 5px;
-  padding: 5px 3px 5px 10px;
+}
+
+.recent__sidebar .recentLinks svg {
+  width: 30px;
+  height: 30px;
 }
 
 .recent__sidebar .recentLinks p,

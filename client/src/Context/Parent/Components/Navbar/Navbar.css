@@ -69,6 +69,10 @@
   transition: var(--trans);
   cursor: pointer;
 }
+.centerNav ul .centnav__links svg {
+  height: 30px;
+  width: 50px;
+}
 
 .rightnav {
   position: relative;
