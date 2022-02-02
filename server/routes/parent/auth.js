@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const passport = require("passport");
-const router = require("express").Router();
 const Parent = require("../../model/Parent/parent");
 const bcrypt = require("bcrypt");
 

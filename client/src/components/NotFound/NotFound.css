@@ -2,5 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - 70px);
+  min-height: 100vh;
+  /* min-height: calc(100vh - 70px); */
+  color: var(--text-color);
 }

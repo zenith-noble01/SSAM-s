@@ -13,10 +13,6 @@
   border-bottom: var(--border);
 }
 
-.btn {
-  display: none;
-}
-
 .navLeft {
   font-size: 20px;
   font-weight: 800;
@@ -59,13 +55,22 @@
   transition: 0.5s ease-in-out;
 }
 
+.navRight li {
+  border: var(--border);
+  border-radius: 20px;
+  transition: var(--trans);
+}
 
-.menu{
+.navRight li:hover {
+  background: var(--text-color);
+  color: var(--bg);
+}
+
+.menu {
   display: none;
 }
 
 @media (max-width: 700px) {
-  
   .CenterLinks {
     display: none;
   }
@@ -81,12 +86,17 @@
     list-style: none;
   }
 
-
   .navRight {
     display: none;
   }
 
-  .menu{
+  .menu {
+    position: relative;
+    overflow: hidden;
+    display: block;
+  }
+
+  .menu .hamburger {
     display: flex;
     flex-direction: column;
     border: var(--border);
@@ -98,25 +108,66 @@
     justify-content: center;
     cursor: pointer;
     overflow: hidden;
+    transition: all var(--trans);
   }
 
-  .menu span{
+  .menu .hamburger span {
     width: 30px;
     height: 4px;
     border-radius: 3px;
     background: var(--color);
     position: absolute;
-    transition: 0.5s ease;
+    transition: all var(--trans);
   }
 
-  .menu span:nth-child(1){
+  .menu .hamburger .open:nth-child(1) {
     transform: translateY(-8px);
     width: 20px;
     left: 4px;
   }
-  .menu span:nth-child(2){
+  .menu .hamburger .open:nth-child(2) {
     transform: translateY(8px);
     width: 14px;
     left: 4px;
+  }
+
+  .menu .hamburger .close:nth-child(1) {
+    transform: rotate(45deg);
+  }
+  .menu .hamburger .close:nth-child(2) {
+    right: -30px;
+    transition: all var(--trans);
+  }
+  .menu .hamburger .close:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+
+  .menuRoutes {
+    position: fixed;
+    background: var(--bg);
+    width: 50vw;
+    height: 50vh;
+    top: 60px;
+    transition: all var(--trans);
+    color: var(--text-color);
+  }
+
+  .menuRoutes ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    transition: all var(--trans);
+  }
+
+  .menuRoutes ul .link li {
+    border: var(--border);
+    cursor: pointer;
+    padding: 5px 20px;
+    border-radius: 20px;
+    transition: all var(--trans);
   }
 }

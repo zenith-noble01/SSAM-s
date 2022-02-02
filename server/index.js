@@ -1,5 +1,5 @@
 require("dotenv").config();
-const cookieSession = require("cookie-session");
+// const cookieSession = require("cookie-session");
 const express = require("express");
 const cors = require("cors");
 const passportSetup = require("./passport/parent");
@@ -8,9 +8,9 @@ const authRoute = require("./routes/parent/auth");
 const ConnectDB = require("./cofig/db");
 const app = express();
 
-app.use(
-  cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
-);
+// app.use(
+//   cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
+// );
 
 app.use(passport.initialize());
 app.use(passport.session());

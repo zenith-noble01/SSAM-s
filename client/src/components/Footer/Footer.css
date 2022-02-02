@@ -1,0 +1,13 @@
+.footer {
+  color: var(--text-color);
+  width: 100%;
+  height: 300px;
+  background: red;
+  margin-top: 110px;
+}
+
+@media (max-width: 700px) {
+  .footer {
+    margin-top: 20px;
+  }
+}

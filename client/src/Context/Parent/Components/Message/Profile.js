@@ -6,9 +6,15 @@ const Profile = () => {
   return (
     <div className="Profile">
       <div className="ProfileContainer">
-        <img src={zenith} alt="" />
+        <div className="Profile__Top">
+          <div className="topWrapper">
+            <img src={zenith} alt="" />
+          </div>
+        </div>
         <div className="profileContent">
-          <p>zentih noble</p>
+          <div className="content__top_Profile">
+            <p>Zenith Noble</p>
+          </div>
         </div>
       </div>
     </div>

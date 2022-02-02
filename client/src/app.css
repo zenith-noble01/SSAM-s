@@ -39,16 +39,18 @@ a {
 .btn {
   margin-top: 1rem;
   display: inline-block;
-  padding: 0.9rem 3rem;
-  font-size: 1.7rem;
+  padding: 0.3rem 2rem;
+  font-size: 1rem;
+  text-transform: capitalize;
+  font-weight: bold;
   color: #fff;
   background: var(--main-color);
   cursor: pointer;
-  transition: 0.5s ease;
+  transition: all var(--trans);
   outline: none;
   border: none;
 }
 
 .btn:hover {
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.1rem;
 }

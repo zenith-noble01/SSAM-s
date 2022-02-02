@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useContext } from "react";
 import "./Auth.css";
+import axios from "axios";
+import { ParentAuthContext } from "../../../../Auth/AAuthContex";
+import { loginCall } from "../../../../Auth/apiCalls";
+import { Link } from "react-router-dom";
 
 const Auth = () => {
   const [active, setActive] = useState(false);
+  // const history = useHistory();
 
   const google = () => {
     window.open("http://localhost:5000/auth/google", "_self");
@@ -15,6 +20,40 @@ const Auth = () => {
   const facebook = () => {
     window.open("http://localhost:5000/auth/facebook", "_self");
   };
+
+  const username = useRef();
+  const email = useRef();
+  const password = useRef();
+  const passwordAgain = useRef();
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    if (passwordAgain.current.value !== password.current.value) {
+      passwordAgain.current.setCustomValidity("Passwords don't match!");
+    } else {
+      const parent = {
+        username: username.current.value,
+        email: email.current.value,
+        password: password.current.value,
+      };
+      try {
+        await axios.post("/auth/register", parent);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  };
+
+  const { isFetching, dispatch } = useContext(ParentAuthContext);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    loginCall(
+      { email: email.current.value, password: password.current.value },
+      dispatch
+    );
+  };
+
   return (
     <div className="auth">
       <div className="authContainer">
@@ -34,14 +73,19 @@ const Auth = () => {
         </div>
         <div className={active ? "forms activeSide" : "forms"}>
           <div className="form signInForm">
-            <form>
+            <form onSubmit={handleLogin}>
               <h3>Sign Up</h3>
-              <input type="email" placeholder="Email" require />
-              <input type="password" placeholder="Passord" require />
-              <input type="submit" value="LogIn" />
-              <a href="#zentih" className="forgot">
+              <input type="email" placeholder="Email" ref={email} require />
+              <input
+                type="password"
+                placeholder="Passord"
+                require
+                ref={password}
+              />
+              <input type="submit" value="LogIn" disabled={isFetching} />
+              <Link to="/forgotpassword" className="link">
                 Forgot Password
-              </a>
+              </Link>
               <div className="oauth">
                 <div className="lineContainer">
                   <div className="line"></div>
@@ -65,11 +109,27 @@ const Auth = () => {
             </form>
           </div>
           <div className="form signUpForm">
-            <form>
+            <form onSubmit={handleRegister}>
               <h3>Sign In</h3>
-              <input type="text" placeholder="Usename" require />
-              <input type="email" placeholder="Email" require />
-              <input type="password" placeholder="Passord" require />
+              <input
+                type="text"
+                placeholder="Username"
+                require
+                ref={username}
+              />
+              <input type="email" ref={email} placeholder="Email" require />
+              <input
+                type="password"
+                placeholder="Password"
+                require
+                ref={password}
+              />
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                require
+                ref={passwordAgain}
+              />
               <input type="submit" value="Register" />
               <div className="oauth">
                 <div className="lineContainer">

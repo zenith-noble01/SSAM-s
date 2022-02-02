@@ -1,5 +1,5 @@
 .auth {
-  color: var(--color);
+  color: var(--text-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,7 +19,7 @@
   top: 40px;
   width: 100%;
   height: 420px;
-  background: green;
+  background: var(--light-black);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,6 +66,7 @@
   box-shadow: var(--shadow);
   transition: var(--trans);
   overflow: hidden;
+  border-radius: 10px;
 }
 
 .forms.activeSide {
@@ -105,7 +106,7 @@
 }
 .forms .form form h3 {
   font-size: 1.5em;
-  color: var(--light-black);
+  color: var(--text-color);
   margin-bottom: 20px;
   font-weight: 500;
 }
@@ -192,7 +193,7 @@
   justify-content: center;
 }
 .github {
-  background: #333;
+  background: var(--light-black);
   display: flex;
   align-items: center;
   justify-content: center;
