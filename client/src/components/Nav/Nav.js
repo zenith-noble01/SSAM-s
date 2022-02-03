@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Nav = () => {
   const [nav, setNav] = useState(false);
-  const [annim, setAnnim] = useState("close");
+  const [annim, setAnnim] = useState("open");
 
   return (
     <div className="nav">
