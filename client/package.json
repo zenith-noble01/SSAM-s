@@ -10,6 +10,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.4",
+    "emailjs-com": "^3.2.0",
     "react": "^17.0.2",
     "react-calendar": "^3.6.0",
     "react-dom": "^17.0.2",
@@ -18,7 +19,8 @@
     "react-scripts": "4.0.3",
     "recharts": "^2.1.8",
     "styled-components": "^5.3.3",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "words-to-numbers": "^1.5.1"
   },
   "scripts": {
     "start": "react-scripts start",

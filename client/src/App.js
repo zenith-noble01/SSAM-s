@@ -7,6 +7,8 @@ import Context from "./context/Context";
 import Message from "./Context/Parent/Components/Message/Message";
 import NotFound from "./components/NotFound/NotFound";
 import { useEffect, useState } from "react";
+import Slide from "./Context/Parent/Components/Slides/Slide";
+import News from "./Context/Parent/Components/News/News";
 // import { useContext } from "react";
 // import { ParentAuthContext } from "./Auth/AAuthContex";
 // import Nav from "./components/Nav/Nav";
@@ -42,11 +44,13 @@ function App() {
 
   return (
     <div className="app">
-      {parent ? <Navbar parent={parent} /> : ""}
+      {parent ? <Navbar parent={parent} /> : null}
       <Routes>
         <Route index element={parent ? <Context /> : <Context />} />
         <Route path="Auth" element={parent ? <Home /> : <Auth />} />
         <Route path="Message" element={<Message />} />
+        <Route path="Slides" element={<Slide />} />
+        <Route path="News" element={<News />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

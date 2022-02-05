@@ -1,4 +1,6 @@
 import img1 from "../../images/chat.jpeg";
+import img2 from "../../images/video.jpeg";
+import img3 from "../../images/tip.jpeg";
 
 export const review = [
   {
@@ -6,11 +8,11 @@ export const review = [
     text: "Connect with teachers anywhere at anytime.",
   },
   {
-    imgSrc: img1,
+    imgSrc: img2,
     text: "Do video and audio stream with teachers on your child's performance.",
   },
   {
-    imgSrc: img1,
+    imgSrc: img3,
     text: "Get all recent chat and updates on your child at your fingertips.",
   },
 ];
