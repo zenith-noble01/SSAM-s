@@ -42,7 +42,7 @@ function App() {
 
   return (
     <div className="app">
-      {parent ? <Navbar parent={parent} /> : <Navbar />}
+      {parent ? <Navbar parent={parent} /> : ""}
       <Routes>
         <Route index element={parent ? <Context /> : <Context />} />
         <Route path="Auth" element={parent ? <Home /> : <Auth />} />
