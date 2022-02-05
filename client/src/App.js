@@ -6,19 +6,46 @@ import { Routes, Route } from "react-router-dom";
 import Context from "./context/Context";
 import Message from "./Context/Parent/Components/Message/Message";
 import NotFound from "./components/NotFound/NotFound";
-import { useContext } from "react";
-import { ParentAuthContext } from "./Auth/AAuthContex";
+import { useEffect, useState } from "react";
+// import { useContext } from "react";
+// import { ParentAuthContext } from "./Auth/AAuthContex";
 // import Nav from "./components/Nav/Nav";
 
 function App() {
-  const { parent } = useContext(ParentAuthContext);
+  // const { parent } = useContext(ParentAuthContext);
+  const [parent, setParent] = useState(null);
+
+  useEffect(() => {
+    const getParent = () => {
+      fetch("http://localhost:5000/auth/login/success", {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Credentials": true,
+        },
+      })
+        .then((response) => {
+          if (response.status === 200) return response.json();
+          throw new Error("authentication has been failed!");
+        })
+        .then((resObject) => {
+          setParent(resObject.parent);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    getParent();
+  }, []);
+
   return (
     <div className="app">
-      {parent ? <Navbar /> : <Navbar />}
+      {parent ? <Navbar parent={parent} /> : <Navbar />}
       <Routes>
-        <Route index element={parent ? <Context /> : <Home />} />
-        {/* // <Route path="Home" element={<Home />} /> */}
-        <Route path="Auth" element={<Auth />} />
+        <Route index element={parent ? <Context /> : <Context />} />
+        <Route path="Auth" element={parent ? <Home /> : <Auth />} />
         <Route path="Message" element={<Message />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

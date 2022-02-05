@@ -5,6 +5,7 @@ const cors = require("cors");
 const passportSetup = require("./passport/parent");
 const passport = require("passport");
 const authRoute = require("./routes/parent/auth");
+const authentication = require("./routes/parent/authentication");
 const ConnectDB = require("./cofig/db");
 const app = express();
 
@@ -28,6 +29,7 @@ app.use(
 const PORT = process.env.PORT || 8000;
 
 app.use("/auth", authRoute);
+app.use("/api/auth", authentication);
 
 app.listen(PORT, () => {
   console.log(`server is running on ${PORT}`);

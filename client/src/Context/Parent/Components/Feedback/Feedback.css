@@ -1,9 +1,64 @@
 .feedback {
   border: var(--border);
+  /* display: flex;
+  flex-direction: column; */
   width: 49%;
   height: 100%;
   background: var(--light-black);
-
   border-radius: 10px;
   transition: var(--trans);
+  color: var(--text-color);
+  padding: 10px;
+}
+
+.feedback .feebackHeader {
+  display: block;
+  border-right: var(--border);
+  font-weight: bold;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+
+.feedbackContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.feedbackContainer .feedbacks {
+  display: flex;
+  align-items: center;
+  transition: var(--trans);
+  cursor: pointer;
+  background: var(--light-black);
+  padding: 5px;
+
+  border-radius: 5px;
+}
+
+.feedbackContainer .feedbacks:hover {
+  background: var(--black);
+}
+
+.feedbackContainer .feedbacks img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: var(--border);
+  object-fit: cover;
+  margin-right: 8px;
+}
+
+.feedbackContainer .feedbacks .feedbacksContent .teacher_des {
+  font-weight: bold;
+}
+
+.feedbackContainer .feedbacks .feedbacksContent .teacher_feed {
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }

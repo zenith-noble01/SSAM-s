@@ -17,6 +17,18 @@ const Parent = new mongoose.Schema({
     type: String,
     required: true,
   },
+  parentName: {
+    type: String,
+    default: "",
+  },
+  parentEmail: {
+    type: String,
+    default: "",
+  },
+  password: {
+    type: String,
+    default: "",
+  },
   image: {
     type: String,
   },

@@ -16,34 +16,157 @@ export const review = [
 ];
 
 export const data = [
+  { data: 4500 },
   {
-    name: "Monday",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
+    data: 5000,
   },
   {
-    name: "Tuesday",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
+    data: 4700,
   },
   {
-    name: "Wednesday",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
+    data: 4400,
   },
   {
-    name: "Thursday",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
+    data: 4800,
   },
   {
-    name: "Friday",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
+    data: 5300,
+  },
+  {
+    data: 5800,
+  },
+  {
+    data: 6000,
+  },
+  {
+    data: 6300,
+  },
+  {
+    data: 6580,
+  },
+  {
+    data: 6780,
+  },
+  {
+    data: 6680,
+  },
+  {
+    data: 6500,
+  },
+  {
+    data: 6300,
+  },
+  {
+    data: 5900,
+  },
+  {
+    data: 5700,
+  },
+  {
+    data: 5500,
+  },
+  {
+    data: 5300,
+  },
+  {
+    data: 5100,
+  },
+  {
+    data: 5090,
+  },
+  {
+    data: 5300,
+  },
+  {
+    data: 5800,
+  },
+  {
+    data: 6000,
+  },
+  {
+    data: 6300,
+  },
+  {
+    data: 6780,
+  },
+  {
+    data: 6500,
+  },
+  {
+    data: 6300,
+  },
+  {
+    data: 6500,
+  },
+  {
+    data: 6700,
+  },
+  {
+    data: 7000,
+  },
+  {
+    data: 7300,
+  },
+  {
+    data: 7500,
+  },
+  {
+    data: 7700,
+  },
+  {
+    data: 8090,
+  },
+  {
+    data: 8190,
+  },
+  {
+    data: 7990,
+  },
+
+  {
+    data: 7700,
+  },
+  {
+    data: 7500,
+  },
+  {
+    data: 7300,
+  },
+  {
+    data: 7000,
+  },
+  {
+    data: 6700,
+  },
+  {
+    data: 6500,
+  },
+  {
+    data: 6300,
+  },
+  {
+    data: 6500,
+  },
+  {
+    data: 6780,
+  },
+  {
+    data: 6300,
+  },
+  {
+    data: 6000,
+  },
+  {
+    data: 5800,
+  },
+
+  {
+    data: 5490,
+  },
+  {
+    data: 6000,
+  },
+  {
+    data: 8000,
   },
 ];
