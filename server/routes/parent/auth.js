@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const passport = require("passport");
-const Parent = require("../../model/Parent/parent");
 const bcrypt = require("bcrypt");
 
 const CLIENT_URL = "http://localhost:3000/";

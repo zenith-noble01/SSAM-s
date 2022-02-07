@@ -1,6 +1,6 @@
 import React, { useState, useRef, useContext } from "react";
 import "./Auth.css";
-// import axios from "axios";
+import axios from "axios";
 import { ParentAuthContext } from "../../../../Auth/AAuthContex";
 import { loginCall } from "../../../../Auth/apiCalls";
 import { Link } from "react-router-dom";
@@ -36,12 +36,12 @@ const Auth = () => {
         email: email.current.value,
         password: password.current.value,
       };
-      console.log(parent);
-      // try {
-      //   await axios.post("http://localhost:5000/api/auth/register", parent);
-      // } catch (err) {
-      //   console.log(err);
-      // }
+      try {
+        await axios.post("http://localhost:6000/api/auth", parent);
+        console.log(parent);
+      } catch (err) {
+        console.log(err);
+      }
     }
   };
 
