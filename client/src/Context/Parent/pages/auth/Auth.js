@@ -37,7 +37,7 @@ const Auth = () => {
         password: password.current.value,
       };
       try {
-        await axios.post("http://localhost:6000/api/auth", parent);
+        await axios.post("http://localhost:5000/api/auth", parent);
         console.log(parent);
       } catch (err) {
         console.log(err);
