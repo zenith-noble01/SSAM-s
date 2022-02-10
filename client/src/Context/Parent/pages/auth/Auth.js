@@ -3,11 +3,11 @@ import "./Auth.css";
 import axios from "axios";
 import { ParentAuthContext } from "../../../../Auth/AAuthContex";
 import { loginCall } from "../../../../Auth/apiCalls";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Auth = () => {
   const [active, setActive] = useState(false);
-  // const history = useHistory();
+  const navigate = useNavigate();
 
   const google = () => {
     window.open("http://localhost:5000/auth/google", "_self");
@@ -38,6 +38,7 @@ const Auth = () => {
       };
       try {
         await axios.post("http://localhost:5000/api/auth", parent);
+        navigate("/auth");
         console.log(parent);
       } catch (err) {
         console.log(err);

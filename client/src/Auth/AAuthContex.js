@@ -1,10 +1,8 @@
-// import { useEffect } from "react";
-import { useReducer } from "react";
-import { createContext, useEffect } from "react";
-import ParentAuthReducer from "./AAuthReducer";
+import { createContext, useEffect, useReducer } from "react";
+import AuthReducer from "./AuthReducer";
 
 const INITIAL_STATE = {
-  parent: JSON.parse(localStorage.getItem("parent")) || null,
+  user: JSON.parse(localStorage.getItem("user")) || null,
   isFetching: false,
   error: false,
 };
@@ -12,16 +10,16 @@ const INITIAL_STATE = {
 export const ParentAuthContext = createContext(INITIAL_STATE);
 
 export const ParentAuthContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(ParentAuthReducer, INITIAL_STATE);
+  const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE);
 
   useEffect(() => {
-    localStorage.setItem("admin", JSON.stringify(state.parent));
-  }, [state.parent]);
+    localStorage.setItem("user", JSON.stringify(state.user));
+  }, [state.user]);
 
   return (
     <ParentAuthContext.Provider
       value={{
-        parent: state.parent,
+        user: state.user,
         isFetching: state.isFetching,
         error: state.error,
         dispatch,
