@@ -1,26 +1,44 @@
-const AdminAuthReducer = (action, state) => {
+const AuthReducer = (state, action) => {
   switch (action.type) {
     case "LOGIN_START":
       return {
-        parent: null,
+        user: null,
         isFetching: true,
         error: false,
       };
     case "LOGIN_SUCCESS":
       return {
-        parent: action.payload,
+        user: action.payload,
         isFetching: false,
         error: false,
       };
     case "LOGIN_FAILURE":
       return {
-        parent: null,
+        user: null,
         isFetching: false,
-        error: action.payload,
+        error: true,
+      };
+    case "FOLLOW":
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          followings: [...state.user.followings, action.payload],
+        },
+      };
+    case "UNFOLLOW":
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          followings: state.user.followings.filter(
+            (following) => following !== action.payload
+          ),
+        },
       };
     default:
       return state;
   }
 };
 
-export default AdminAuthReducer;
+export default AuthReducer;

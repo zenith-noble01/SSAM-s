@@ -6,48 +6,20 @@ import { Routes, Route } from "react-router-dom";
 import Context from "./context/Context";
 import Message from "./Context/Parent/Components/Message/Message";
 import NotFound from "./components/NotFound/NotFound";
-// import { useEffect, useState } from "react";
 import Slide from "./Context/Parent/Components/Slides/Slide";
 import News from "./Context/Parent/Components/News/News";
 import { useContext } from "react";
 import { ParentAuthContext } from "./Auth/AAuthContex";
 
 function App() {
-  const { parent } = useContext(ParentAuthContext);
-  // const [parent, setParent] = useState(null);
-
-  // useEffect(() => {
-  //   const getParent = () => {
-  //     fetch("http://localhost:5000/auth/login/success", {
-  //       method: "GET",
-  //       credentials: "include",
-  //       headers: {
-  //         Accept: "application/json",
-  //         "Content-Type": "application/json",
-  //         "Access-Control-Allow-Credentials": true,
-  //       },
-  //     })
-  //       .then((response) => {
-  //         if (response.status === 200) return response.json();
-  //         throw new Error("authentication has been failed!");
-  //       })
-  //       .then((resObject) => {
-  //         setParent(resObject);
-  //         console.log(resObject.parent);
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-  //   };
-  //   getParent();
-  // }, []);
-  // console.log(parent);
+  const { user } = useContext(ParentAuthContext);
+  console.log(user);
   return (
     <div className="app">
-      {parent ? <Navbar parent={parent} /> : null}
+      {user ? <Navbar user={user} /> : null}
       <Routes>
-        <Route index element={parent ? <Context /> : <Context />} />
-        <Route path="Auth" element={parent ? <Home /> : <Auth />} />
+        <Route index element={user ? <Home /> : <Context />} />
+        <Route path="Auth" element={user ? <Home /> : <Auth />} />
         <Route path="Message" element={<Message />} />
         <Route path="Slides" element={<Slide />} />
         <Route path="News" element={<News />} />
