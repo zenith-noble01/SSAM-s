@@ -3,7 +3,7 @@ import "./Navbar.css";
 import logo from "../../../../images/logo.png";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
   const [drop, setDrop] = useState(false);
   return (
     <div className="navbar">
@@ -18,7 +18,7 @@ const Navbar = () => {
         <div className="centerNav">
           <ul>
             <div className="centnav__links">
-              <Link className="link" to="/Home">
+              <Link className="link" to="/">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-6 w-6"
@@ -96,14 +96,14 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="rightnav">
-          <img src={logo} alt="" onClick={() => setDrop(!drop)} />
+          <img src={user.pic} alt="" onClick={() => setDrop(!drop)} />
 
           <div className={drop ? "navUser__profile drop" : "navUser__profile"}>
             <div className="topnav__userProfile">
-              <img src={logo} alt="" />
+              <img src={user.pic} alt="" />
               <div className="name__profile">
-                <p>Zenith Noble</p>
-                <p>the Insane</p>
+                <p>{user._id}</p>
+                <p>{user.email}</p>
               </div>
             </div>
             <div className="navProfile__link">

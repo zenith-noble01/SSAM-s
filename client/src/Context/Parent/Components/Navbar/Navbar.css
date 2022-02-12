@@ -93,6 +93,7 @@
   opacity: 0;
   right: 0;
   top: 80px;
+  z-index: 999;
   width: 250px;
   transition: var(--trans);
   border-top-left-radius: 10px;
@@ -118,12 +119,18 @@
 }
 .navUser__profile .topnav__userProfile .name__profile {
   display: flex;
-  text-transform: capitalize;
+  text-transform: normal;
   flex-direction: column;
 }
 
 .navUser__profile .topnav__userProfile .name__profile p:nth-child(1) {
-  font-weight: bold;
+  font-weight: 500;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 .navProfile__link {

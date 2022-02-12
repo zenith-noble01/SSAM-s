@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Message.css";
 import zenith from "../.../../../../../images/logo.png";
 
 const Content = () => {
+  const [call, setCall] = useState(false);
   return (
     <div className="Content">
       <div className="ContentContainer">
@@ -12,7 +13,7 @@ const Content = () => {
             <p>Zenith noble</p>
           </div>
           <div className="top__items">
-            <div className="calls calls__audio">
+            <div className="calls calls__audio" onClick={() => setCall(!call)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-6 w-6"
@@ -28,7 +29,7 @@ const Content = () => {
                 />
               </svg>
             </div>
-            <div className="calls calls__video">
+            <div className="calls calls__video" onClick={() => setCall(!call)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-6 w-6"
@@ -96,3 +97,6 @@ const Content = () => {
 export default Content;
 
 // search;
+// ubuntu = p@ssword12340
+//iphone = 020420
+// windows = #INCLUDE<studio.h>!

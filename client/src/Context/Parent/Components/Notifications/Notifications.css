@@ -1,0 +1,7 @@
+.notification {
+  display: flex;
+  padding: 10px 10%;
+  color: var(--text-color);
+  height: calc(100vh - 70px);
+  min-height: calc(100vh - 70px);
+}

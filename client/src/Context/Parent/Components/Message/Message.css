@@ -53,6 +53,7 @@
 .MessageProfile {
   flex: 1.2;
   border-left: var(--border);
+  height: calc(100vh - 70px);
 }
 
 .MessageProfile {
@@ -69,7 +70,6 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  /* padding: 5px; */
   transition: var(--trans);
 }
 
@@ -149,6 +149,7 @@
 
 .ProfileContainer {
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -165,7 +166,6 @@
   height: 120px;
   object-fit: cover;
   padding: 5px;
-  z-index: 999;
   background: var(--black);
   position: absolute;
   top: 100%;
@@ -305,6 +305,7 @@
   outline: none;
   max-height: 200px;
   height: 40px;
+  max-height: 70px;
   min-height: 40px;
   border: none;
   padding: 10px;
