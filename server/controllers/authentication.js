@@ -1,92 +1,50 @@
-const asyncHandler = require("express-async-handler");
 const User = require("../models/parent/Parent");
-const generateToken = require("../utils/generateToken.js");
+const bcrypt = require("bcryptjs");
 
-//@description     Auth the user
-//@route           POST /api/users/login
-//@access          Public
-const authUser = asyncHandler(async (req, res) => {
-  const { email, password } = req.body;
-
-  const user = await User.findOne({ email });
-
-  if (user && (await user.matchPassword(password))) {
-    res.json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      isAdmin: user.isAdmin,
-      pic: user.pic,
-      token: generateToken(user._id),
+module.exports.registerRoute = async (req, res, next) => {
+  try {
+    //generate new hashed password
+    const validEmail = await User.findOne({ email: req.body.email });
+    if (validEmail)
+      return res.status(400).json({
+        msg: "email already exists",
+        status: 400,
+      });
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+    //create new user
+    const newUser = new User({
+      username: req.body.username,
+      email: req.body.email,
+      password: hashedPassword,
     });
-  } else {
-    res.status(401);
-    throw new Error("Invalid Email or Password");
+
+    //save user and respond
+    const user = await newUser.save();
+    res.status(200).json(user);
+  } catch (err) {
+    res.status(500).json(err);
+    next(err);
   }
-});
+};
 
-//@description     Register new user
-//@route           POST /api/users/
-//@access          Public
-const registerUser = asyncHandler(async (req, res) => {
-  const { username, email, password, pic } = req.body;
+module.exports.LoginRoute = async (req, res, next) => {
+  try {
+    //verifying the user email
+    const user = await User.findOne({ email: req.body.email });
+    !user && res.status(404).json("user not found");
+    //verifying the user password
+    const validPassword = await bcrypt.compare(
+      req.body.password,
+      user.password
+    );
+    !validPassword && res.status(400).json("invalid password");
 
-  const userExists = await User.findOne({ email });
-
-  if (userExists) {
-    res.status(404);
-    throw new Error("User already exists");
-  }
-
-  const user = await User.create({
-    username,
-    email,
-    password,
-    pic,
-  });
-
-  if (user) {
-    res.status(201).json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      pic: user.pic,
-      token: generateToken(user._id),
+    res.status(200).json({
+      user: user,
+      msg: "login successful",
     });
-  } else {
-    res.status(400);
-    throw new Error("User not found");
+  } catch (err) {
+    res.status(500).json(err);
   }
-});
-
-// @desc    GET user profile
-// @route   GET /api/users/profile
-// @access  Private
-const updateUserProfile = asyncHandler(async (req, res) => {
-  const user = await User.findById(req.user._id);
-
-  if (user) {
-    user.name = req.body.name || user.name;
-    user.email = req.body.email || user.email;
-    user.pic = req.body.pic || user.pic;
-    if (req.body.password) {
-      user.password = req.body.password;
-    }
-
-    const updatedUser = await user.save();
-
-    res.json({
-      _id: updatedUser._id,
-      name: updatedUser.name,
-      email: updatedUser.email,
-      pic: updatedUser.pic,
-      isAdmin: updatedUser.isAdmin,
-      token: generateToken(updatedUser._id),
-    });
-  } else {
-    res.status(404);
-    throw new Error("User Not Found");
-  }
-});
-
-module.exports = { authUser, updateUserProfile, registerUser };
+};

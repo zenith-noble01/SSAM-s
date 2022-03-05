@@ -1,6 +1,6 @@
 {
-  "name": "client",
-  "version": "0.1.0",
+  "name": "ssams",
+  "version": "2.2.2",
   "private": true,
   "dependencies": {
     "@alan-ai/alan-sdk-web": "^1.8.30",

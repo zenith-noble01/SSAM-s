@@ -24,7 +24,7 @@ connectDb();
 app.use(errorHandler);
 app.use(morgan("dev"));
 
-app.use("/api/auth", require("./routes/auth"));
+app.use("/api/parent/auth", require("./routes/auth"));
 const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => {

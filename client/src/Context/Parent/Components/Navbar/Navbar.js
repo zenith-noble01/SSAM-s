@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 
 const Navbar = ({ user }) => {
   const [drop, setDrop] = useState(false);
+  const handleSignOUt = () => {
+    localStorage.removeItem("user");
+    window.location.href = "/";
+  };
   return (
     <div className="navbar">
       <div className="navbarContainer">
@@ -124,7 +128,7 @@ const Navbar = ({ user }) => {
                 <p>Child's Profile</p>
                 <p></p>
               </div>
-              <p>Sign Out</p>
+              <p onClick={handleSignOUt}>Sign Out</p>
             </div>
           </div>
         </div>
