@@ -8,13 +8,13 @@ import Message from "./Context/Parent/Components/Message/Message";
 import NotFound from "./components/NotFound/NotFound";
 import Slide from "./Context/Parent/Components/Slides/Slide";
 import News from "./Context/Parent/Components/News/News";
-// import { useContext } from "react";
-// import { ParentAuthContext } from "./Auth/AAuthContex";
+import { useContext } from "react";
+import { ParentAuthContext } from "./Auth/AAuthContex";
 import Notifications from "./Context/Parent/Components/Notifications/Notifications";
 
 function App() {
-  // const { user } = useContext(ParentAuthContext);
-const user = true
+  const { user } = useContext(ParentAuthContext);
+  // const user = true
   return (
     <div className="app">
       {user ? <Navbar user={user} /> : null}
