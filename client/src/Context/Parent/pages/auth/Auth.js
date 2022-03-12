@@ -1,13 +1,17 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./Auth.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { registerRoute } from "../../../../api/Parent";
+import { loginRoute, registerRoute } from "../../../../api/Parent";
 
 const Auth = () => {
   const [active, setActive] = useState(false);
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordAgain, setPasswordAgain] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -34,14 +38,14 @@ const Auth = () => {
     window.open("http://localhost:5000/auth/facebook", "_self");
   };
 
-  const username = useRef();
-  const email = useRef();
-  const password = useRef();
-  const passwordAgain = useRef();
+  // const username = useRef();
+  // const email = useRef();
+  // const password = useRef();
+  // const passwordAgain = useRef();
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    if (passwordAgain.current.value !== password.current.value) {
+    if (passwordAgain !== password) {
       return toast.error("Passwords don't match", toastOptions);
     } else {
       const parent = {
@@ -55,7 +59,7 @@ const Auth = () => {
         if (data.status === false) {
           toast.error(data.msg, toastOptions);
         }
-        if (data.statis === true) {
+        if (data.status === true) {
           localStorage.setItem("parent", JSON.stringify(data.user));
           navigate("/");
         }
@@ -65,14 +69,25 @@ const Auth = () => {
     }
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    const parent = {
-      email: email.current.value,
-      password: password.current.value,
-    };
-    console.log(parent.email);
-    toast.success(parent.email, toastOptions);
+    try {
+      const parent = {
+        email,
+        password,
+      };
+      console.log(parent);
+      const { data } = await axios.post(loginRoute, parent);
+      if (data.status === false) {
+        toast.error(data.msg, toastOptions);
+      }
+      if (data.status === true) {
+        localStorage.setItem("parent", JSON.stringify(data.user));
+        navigate("/");
+      }
+    } catch (err) {
+      toast.error(err, toastOptions);
+    }
   };
 
   return (
@@ -96,14 +111,19 @@ const Auth = () => {
           <div className="form signInForm">
             <form onSubmit={handleLogin}>
               <h3>Sign Up</h3>
-              <input type="email" placeholder="Email" ref={email} require />
+              <input
+                type="email"
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email"
+                require
+              />
               <input
                 type="password"
                 placeholder="Password"
                 require
-                ref={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
-              <input type="submit" value="LogIn" />
+              <input type="submit" value="Log In" />
               <Link to="/forgotpassword" className="link">
                 Forgot Password
               </Link>
@@ -136,20 +156,25 @@ const Auth = () => {
                 type="text"
                 placeholder="Username"
                 require
-                ref={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
-              <input type="email" ref={email} placeholder="Email" require />
+              <input
+                type="email"
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email"
+                require
+              />
               <input
                 type="password"
                 placeholder="Password"
                 require
-                ref={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <input
                 type="password"
                 placeholder="Confirm Password"
                 require
-                ref={passwordAgain}
+                onChange={(e) => setPasswordAgain(e.target.value)}
               />
               <input type="submit" value="Register" />
               <div className="oauth">

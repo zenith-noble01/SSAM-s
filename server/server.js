@@ -7,7 +7,7 @@ const app = express();
 const connectDb = require("./config/db");
 const morgan = require("morgan");
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000;
 connectDb();
 app.use(cors());
 

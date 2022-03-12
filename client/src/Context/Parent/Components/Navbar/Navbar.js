@@ -3,10 +3,10 @@ import "./Navbar.css";
 import logo from "../../../../images/logo.png";
 import { Link } from "react-router-dom";
 
-const Navbar = ({ user }) => {
+const Navbar = ({ parent }) => {
   const [drop, setDrop] = useState(false);
   const handleSignOUt = () => {
-    localStorage.removeItem("user");
+    localStorage.removeItem("parent");
     window.location.href = "/";
   };
   return (
@@ -100,14 +100,14 @@ const Navbar = ({ user }) => {
           </ul>
         </div>
         <div className="rightnav">
-          <img src={user.pic} alt="" onClick={() => setDrop(!drop)} />
+          <img src={parent.pic} alt="" onClick={() => setDrop(!drop)} />
 
           <div className={drop ? "navUser__profile drop" : "navUser__profile"}>
             <div className="topnav__userProfile">
-              <img src={user.pic} alt="" />
+              <img src={parent.pic} alt="" />
               <div className="name__profile">
-                <p>{user._id}</p>
-                <p>{user.email}</p>
+                <p>{parent.username}</p>
+                <p>{parent.email}</p>
               </div>
             </div>
             <div className="navProfile__link">

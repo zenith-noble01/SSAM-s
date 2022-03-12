@@ -1,7 +1,0 @@
-.chart {
-  height: 48%;
-  border: var(--border);
-  background: var(--light-black);
-  border-radius: 10px;
-  transition: var(--trans);
-}

@@ -15,7 +15,6 @@ import AuthTeacher from "./Context/Teacher/pages/auth/AuthTeacher";
 
 function App() {
   const [parent, setParent] = useState(undefined);
-  console.log(parent);
 
   useEffect(() => {
     const data = async () => {
@@ -24,6 +23,7 @@ function App() {
     data();
   }, []);
 
+  console.log(parent);
   return (
     <div className="app">
       {parent ? <Navbar parent={parent} /> : null}

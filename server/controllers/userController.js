@@ -1,9 +1,10 @@
 const User = require("../models/parent/Parent");
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
 
 module.exports.login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
+    console.log(email)
     const user = await User.findOne({ email });
     if (!user) return res.json({ msg: "Incorrect Email", status: false });
     const isPasswordValid = await bcrypt.compare(password, user.password);
