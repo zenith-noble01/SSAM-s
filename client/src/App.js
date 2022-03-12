@@ -8,25 +8,36 @@ import Message from "./Context/Parent/Components/Message/Message";
 import NotFound from "./components/NotFound/NotFound";
 import Slide from "./Context/Parent/Components/Slides/Slide";
 import News from "./Context/Parent/Components/News/News";
-import { useContext } from "react";
-import { ParentAuthContext } from "./Auth/AAuthContex";
 import Notifications from "./Context/Parent/Components/Notifications/Notifications";
+import { useEffect, useState } from "react";
+import AuthStudent from "./Context/Student/pages/auth/AuthStudent";
+import AuthTeacher from "./Context/Teacher/pages/auth/AuthTeacher";
 
 function App() {
-  const { user } = useContext(ParentAuthContext);
-  // const user = true
+  const [parent, setParent] = useState(undefined);
+  console.log(parent);
+
+  useEffect(() => {
+    const data = async () => {
+      setParent(await JSON.parse(localStorage.getItem("parent")));
+    };
+    data();
+  }, []);
+
   return (
     <div className="app">
-      {user ? <Navbar user={user} /> : null}
+      {parent ? <Navbar parent={parent} /> : null}
       <Routes>
-        <Route index element={user ? <Home /> : <Context />} />
-        <Route path="Auth" element={user ? <Home /> : <Auth />} />
-        <Route path="Message" element={user ? <Message /> : <Auth />} />
-        <Route path="Slides" element={user ? <Home /> : <Slide />} />
-        <Route path="News" element={user ? <News /> : <Context />} />
+        <Route index element={parent ? <Home /> : <Context />} />
+        <Route path="authStudent" element={<AuthStudent />} />
+        <Route path="authTeacher" element={<AuthTeacher />} />
+        <Route path="AuthParent" element={parent ? <Home /> : <Auth />} />
+        <Route path="Message" element={parent ? <Message /> : <Auth />} />
+        <Route path="Slides" element={parent ? <Home /> : <Slide />} />
+        <Route path="News" element={parent ? <News /> : <Context />} />
         <Route
           path="Notifications"
-          element={user ? <Notifications /> : <Context />}
+          element={parent ? <Notifications /> : <Context />}
         />
         <Route path="*" element={<NotFound />} />
       </Routes>

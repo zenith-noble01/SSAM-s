@@ -3,10 +3,10 @@
   align-items: center;
   justify-content: center;
   /* min-height: 100vh; */
-  min-height: calc(100vh - 70px);
+  min-height: 100vh;
   color: var(--text-color);
   padding: 10px 10%;
-  height: calc(100vh - 70px);
+  height: 100vh;
 }
 
 .notfoundContainer {
@@ -35,6 +35,7 @@
 .notfoundContainer .notFoundLeftContainer > p > a {
   color: var(--text-color);
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .notfoundContainer .notFoundLeftContainer .topLeft p {

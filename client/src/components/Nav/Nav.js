@@ -2,10 +2,9 @@ import { useState } from "react";
 import "./nav.css";
 import { Link } from "react-router-dom";
 
-const Nav = () => {
+const Nav = ({ setOver }) => {
   const [nav, setNav] = useState(false);
   const [annim, setAnnim] = useState("open");
-
   return (
     <div className="nav">
       <div className="navLeft">SSAM's</div>
@@ -35,9 +34,7 @@ const Nav = () => {
       </div>
       <div className="navRight">
         <ul className="rightItems">
-          <Link to="/auth" className="link">
-            <li>Register</li>
-          </Link>
+          <li onClick={() => setOver(true)}>Register</li>
         </ul>
       </div>
       <div className="menu">
@@ -78,7 +75,12 @@ const Nav = () => {
               </a>
             </li>
             <Link to="/auth" className="link">
-              <li className="centerLinkItems__mobile">Register</li>
+              <li
+                className="centerLinkItems__mobile"
+                onClick={() => setOver(true)}
+              >
+                Register
+              </li>
             </Link>
           </ul>
         </div>

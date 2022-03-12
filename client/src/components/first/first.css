@@ -1,6 +1,5 @@
 .first {
   height: calc(100vh - 60px);
-  /* background: url(../images/images/home-img.jpeg); */
   background: url(../images/bg.jpg);
   background-position: center;
   background-size: cover;
@@ -47,6 +46,71 @@
 .firstWhoItem:hover {
   background: white;
   color: black;
+}
+
+.first .overFlow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.671);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  transition: var(--trans);
+  justify-content: center;
+  pointer-events: none;
+}
+
+.first .overFlow .selectContainer {
+  background: var(--b);
+  padding: 10px;
+  border-radius: 10px;
+  width: 40%;
+  height: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* position: relative; */
+}
+
+.first .overFlow .selectContainer .closeOver {
+  position: absolute;
+  top: 80px;
+  font-weight: bold;
+  border: none;
+  font-size: 3em;
+  transform: rotate(45deg);
+  color: var(--text-color);
+  background: none;
+  right: 40px;
+}
+
+.first .overFlow .selectContainer button {
+  margin: 0 10px;
+  height: 40px;
+  padding: 0 40px;
+  border: var(--border);
+  cursor: pointer;
+  background: none;
+  color: var(--text-color);
+  font-weight: 600;
+  transition: var(--trans);
+}
+.first .overFlow .selectContainer button:hover {
+  margin: 0 10px;
+  height: 40px;
+  padding: 0 40px;
+  border: var(--border);
+  cursor: pointer;
+  color: var(--b);
+  background: var(--text-color);
+}
+
+.first .overFlow.showyourself {
+  opacity: 1;
+  pointer-events: all;
 }
 
 @media (max-width: 700px) {

@@ -160,3 +160,8 @@
   font-weight: bold;
   margin-top: 0;
 }
+
+.navUser__routes .signOutBtn {
+  margin-top: 5px;
+  cursor: pointer;
+}

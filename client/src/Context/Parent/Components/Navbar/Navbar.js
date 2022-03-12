@@ -128,7 +128,9 @@ const Navbar = ({ user }) => {
                 <p>Child's Profile</p>
                 <p></p>
               </div>
-              <p onClick={handleSignOUt}>Sign Out</p>
+              <p onClick={handleSignOUt} className="signOutBtn">
+                Sign Out
+              </p>
             </div>
           </div>
         </div>

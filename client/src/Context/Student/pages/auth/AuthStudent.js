@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
-import "./Auth.css";
+import "./AuthStudent.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { registerRoute } from "../../../../api/Parent";
 
-const Auth = () => {
+const AuthStudent = () => {
   const [active, setActive] = useState(false);
   const navigate = useNavigate();
 
@@ -181,4 +181,4 @@ const Auth = () => {
   );
 };
 
-export default Auth;
+export default AuthStudent;

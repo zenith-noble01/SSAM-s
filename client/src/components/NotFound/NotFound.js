@@ -14,7 +14,7 @@ const NotFound = () => {
           <p>
             The link you clicked may be broken or the page may have been
             removed. You can try to use the search box again or go back to{" "}
-            <Link ckassName="link" to="/">
+            <Link ckassName="" to="/">
               home page
             </Link>
           </p>
