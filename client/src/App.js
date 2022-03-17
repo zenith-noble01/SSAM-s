@@ -23,7 +23,6 @@ function App() {
     data();
   }, []);
 
-  console.log(parent);
   return (
     <div className="app">
       {parent ? <Navbar parent={parent} /> : null}

@@ -83,6 +83,7 @@ const Auth = () => {
       }
       if (data.status === true) {
         localStorage.setItem("parent", JSON.stringify(data.user));
+        window.location.reload()
         navigate("/");
       }
     } catch (err) {

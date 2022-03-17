@@ -15,6 +15,7 @@ app.use(morgan("dev"));
 
 app.use(express.json());
 app.use("/api/authParent", require("./routes/auth"));
+app.use("/api/authTeacher", require("./routes/Teacher/auth"));
 
 app.listen(PORT, () => {
   console.log(`server is running on ${PORT}`);
