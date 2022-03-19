@@ -19,7 +19,11 @@ const userSchema = mongoose.Schema(
       type: String,
       default: "",
     },
-    classTeaching: {
+    classes: {
+      type: Array,
+      default: [],
+    },
+    subjectTeaching: {
       type: String,
       default: "",
     },
