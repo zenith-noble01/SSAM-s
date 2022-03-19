@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-constclassSchema = mongoose.Schema(
+const classSchema = mongoose.Schema(
   {
     classname: {
       type: String,

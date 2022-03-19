@@ -12,11 +12,13 @@ import { useEffect, useState } from "react";
 import AuthStudent from "./Context/Student/pages/auth/AuthStudent";
 import AuthTeacher from "./Context/Teacher/pages/auth/AuthTeacher";
 import Container from "./Context/Container";
+import AdminAuth from "./Context/Admin/pages/AdminAuth";
 
 function App() {
   const [parent, setParent] = useState(undefined);
   const [teacher, setTeacher] = useState(undefined);
   const [student, setStudent] = useState(undefined);
+  const [admin, setAdmin] = useState(undefined);
 
   //get parent
   useEffect(() => {
@@ -34,13 +36,22 @@ function App() {
     data();
   }, []);
 
-  //get student
+  //get admin
   useEffect(() => {
     const data = async () => {
       setStudent(await JSON.parse(localStorage.getItem("student")));
     };
     data();
   }, []);
+
+  //get student
+  useEffect(() => {
+    const data = async () => {
+      setAdmin(await JSON.parse(localStorage.getItem("admin")));
+    };
+    data();
+  }, []);
+
   return (
     <div className="app">
       {parent ? <Navbar parent={parent} /> : null}
@@ -48,8 +59,13 @@ function App() {
         <Route
           index
           element={
-            parent || teacher || student ? (
-              <Container student={student} parent={parent} teacher={teacher} />
+            parent || teacher || student || admin ? (
+              <Container
+                student={student}
+                parent={parent}
+                teacher={teacher}
+                admin={admin}
+              />
             ) : (
               <Context />
             )
@@ -61,6 +77,7 @@ function App() {
           element={
             teacher ? (
               <Container
+                admin={admin}
                 student={student}
                 parent={parent}
                 teacher={teacher}
@@ -83,6 +100,10 @@ function App() {
           element={
             parent || teacher || student ? <Notifications /> : <Context />
           }
+        />
+        <Route
+          path="adminAuth"
+          element={admin ? <Container /> : <AdminAuth />}
         />
 
         <Route path="*" element={<NotFound />} />

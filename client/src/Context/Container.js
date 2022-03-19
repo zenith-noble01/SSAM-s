@@ -1,10 +1,10 @@
 import React from "react";
+import Admin from "./Admin/Admin";
 import Parent from "./Parent/pages/home/Parent";
 import Student from "./Student/pages/Home/Student";
 import HomeT from "./Teacher/pages/Home/HomeT";
 
-const Container = ({ student, teacher, parent }) => {
-  console.log(teacher);
+const Container = ({ student, teacher, parent, admin }) => {
   return (
     <div>
       {teacher && (
@@ -22,6 +22,12 @@ const Container = ({ student, teacher, parent }) => {
       {student && (
         <div className="studentContainer">
           <Student />
+        </div>
+      )}
+
+      {admin && (
+        <div className="admin">
+          <Admin />
         </div>
       )}
     </div>
