@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import "./first.css";
 const First = ({ over, setOver }) => {
-  console.log(over);
   return (
     <div className="first" id="home">
       <p>

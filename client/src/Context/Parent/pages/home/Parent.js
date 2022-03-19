@@ -1,11 +1,11 @@
 import React from "react";
-import "./Home.css";
+import "./Parent.css";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import Chart from "../../Components/chart/chart";
 import Calender from "../../Components/Calender/Calender";
 import Feedback from "../../Components/Feedback/Feedback";
 
-const Home = () => {
+const Parent = () => {
   return (
     <div className="home">
       <Sidebar />
@@ -20,4 +20,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Parent;
