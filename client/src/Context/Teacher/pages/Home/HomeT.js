@@ -5,6 +5,7 @@ const HomeT = ({ teacher }) => {
   return (
     <div className="Teacher">
       <Navbar teacher={teacher} />
+      the isthe home teacher page
     </div>
   );
 };

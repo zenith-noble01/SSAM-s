@@ -1,6 +1,5 @@
 import "./app.css";
 import Navbar from "./Context/Parent/Components/Navbar/Navbar";
-import Home from "./Context/Parent/pages/home/Parent";
 import Auth from "./Context/Parent/pages/auth/Auth";
 import { Routes, Route } from "react-router-dom";
 import Context from "./context/Context";
@@ -57,14 +56,33 @@ function App() {
           }
         />
         <Route path="authStudent" element={<AuthStudent />} />
-        <Route path="authTeacher" element={<AuthTeacher />} />
-        <Route path="AuthParent" element={parent ? <Home /> : <Auth />} />
+        <Route
+          path="authTeacher"
+          element={
+            teacher ? (
+              <Container
+                student={student}
+                parent={parent}
+                teacher={teacher}
+                z
+              />
+            ) : (
+              <AuthTeacher />
+            )
+          }
+        />
+        <Route path="AuthParent" element={parent ? <Container /> : <Auth />} />
         <Route path="Message" element={parent ? <Message /> : <Auth />} />
-        <Route path="Slides" element={parent ? <Home /> : <Slide />} />
-        <Route path="News" element={parent ? <News /> : <Context />} />
+        <Route path="Slides" element={parent ? <Container /> : <Slide />} />
+        <Route
+          path="News"
+          element={parent || teacher || student ? <News /> : <Context />}
+        />
         <Route
           path="Notifications"
-          element={parent ? <Notifications /> : <Context />}
+          element={
+            parent || teacher || student ? <Notifications /> : <Context />
+          }
         />
 
         <Route path="*" element={<NotFound />} />

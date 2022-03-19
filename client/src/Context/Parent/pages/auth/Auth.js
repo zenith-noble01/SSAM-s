@@ -76,14 +76,13 @@ const Auth = () => {
         email,
         password,
       };
-      console.log(parent);
       const { data } = await axios.post(loginRoute, parent);
       if (data.status === false) {
         toast.error(data.msg, toastOptions);
       }
       if (data.status === true) {
         localStorage.setItem("parent", JSON.stringify(data.user));
-        window.location.reload()
+        window.location.reload();
         navigate("/");
       }
     } catch (err) {
