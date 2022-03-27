@@ -1,0 +1,59 @@
+.Top {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px 0;
+  transition: var(--trans);
+  .TopContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .TopCont {
+      height: 150px;
+      width: 23%;
+      border-radius: 5px;
+      transition: var(--trans);
+      text-transform: capitalize;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      .total {
+        margin-top: 10px;
+        font-weight: 500;
+      }
+      .logo {
+        width: 40px;
+        height: 40px;
+        background: orange;
+        border-radius: 5px;
+        transition: var(--trans);
+        transform: rotate(45deg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        span {
+          transform: rotate(-45deg);
+          font-weight: 400;
+        }
+      }
+      span {
+        font-weight: 700;
+      }
+    }
+    .TopCont.one {
+      background: var(--pink);
+    }
+    .TopCont.two {
+      background: var(--green);
+    }
+    .TopCont.three {
+      background: var(--orange);
+    }
+    .TopCont.four {
+      background: var(--red);
+    }
+  }
+}

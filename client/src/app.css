@@ -5,11 +5,17 @@
   --bg: #010103;
   --text-color: whitesmoke;
   --border: 0.1rem solid rgba(255, 255, 255, 0.3);
+  --bord: 0.1rem solid rgba(202, 192, 192, 0.3);
   --trans: 0.5s ease-in-out;
   --color: rgba(255, 255, 255, 0.3);
   --shadow: 0 2px 15px rgba(238, 229, 229, 0.3);
   --light-black: #444;
   --light-white: #888;
+  --green: #c4fcef;
+  --red: #ff6f91;
+  --pink: #faccff;
+  --orange: #fbeaff;
+  --white: #fff;
   /* --color: #ffc107; */
 }
 

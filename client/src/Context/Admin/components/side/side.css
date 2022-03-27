@@ -1,8 +1,0 @@
-.side {
-  width: 75%;
-  background: blue;
-  padding: 10px;
-  transition: var(--trans);
-  float: right;
-  background: whitesmoke;
-}

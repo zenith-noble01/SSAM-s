@@ -1,21 +1,37 @@
 import React from "react";
-import "./Top.css";
+import "./Top.scss";
 
 const Top = () => {
   return (
     <div className="Top">
       <div className="TopContainer">
         <div className="TopCont one">
-          <p>Total Students </p>
+          <div className="logo">
+            <span>logo</span>
+          </div>
+          <p className="total">Total Students </p>
+          <span>100</span>
         </div>
         <div className="TopCont two">
-          <p>Total teachers</p>
+          <div className="logo">
+            <span>logo</span>
+          </div>
+          <p className="total">Total teachers</p>
+          <span>100</span>
         </div>
         <div className="TopCont three">
-          <p>total parents</p>
+          <div className="logo">
+            <span>logo</span>
+          </div>
+          <p className="total">total parents</p>
+          <span>100</span>
         </div>
         <div className="TopCont four">
-          <p>total subjects</p>
+          <div className="logo">
+            <span>logo</span>
+          </div>
+          <p className="total">total subjects</p>
+          <span>100</span>
         </div>
       </div>
     </div>

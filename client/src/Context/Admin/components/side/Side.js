@@ -1,11 +1,15 @@
 import React from "react";
-import Top from "../Top/Top";
-import "./side.css";
+import Center from "../center/Center";
+import Notice from "../notice/Notice";
+import "./side.scss";
 
 const Side = () => {
   return (
     <div className="side">
-      <Top />
+      <div className="sideContainer">
+        <Center />
+        <Notice />
+      </div>
     </div>
   );
 };

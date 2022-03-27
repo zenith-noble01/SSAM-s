@@ -1,10 +1,17 @@
 import React from "react";
-import "./sidebar.css";
+import "./nav.scss";
 
 const Sidebar = () => {
   return (
     <div className="adminNav">
-      <div className="adminNav">adminNav</div>
+      <div className="header">
+        <p>Dashboard</p>
+      </div>
+
+      <div className="search">
+        <input type="text" placeholder="Search" />
+        <button>ser</button>
+      </div>
     </div>
   );
 };

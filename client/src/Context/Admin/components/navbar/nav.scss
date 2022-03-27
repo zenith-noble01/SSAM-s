@@ -1,0 +1,46 @@
+.adminNav {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  justify-content: space-between;
+
+  .header {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .search {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    transition: var(--trans);
+    background: var(--white);
+    height: 30px;
+    border-radius: 30px;
+    position: relative;
+    input {
+      display: flex;
+      outline: none;
+      height: 100%;
+      border-radius: 30px;
+      border: none;
+      width: 100%;
+      padding-right: 38px;
+      padding-left: 20px;
+    }
+
+    button {
+      background: violet;
+      height: 35px;
+      width: 35px;
+      border-radius: 50%;
+      border: none;
+      position: absolute;
+      right: 0;
+      z-index: 999;
+    }
+  }
+}

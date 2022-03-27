@@ -27,7 +27,7 @@ const Container = ({ student, teacher, parent, admin }) => {
 
       {admin && (
         <div className="admin">
-          <Admin />
+          <Admin admin={admin} />
         </div>
       )}
     </div>

@@ -1,0 +1,12 @@
+.side {
+  width: 82%;
+  transition: var(--trans);
+  float: right;
+  background: var(--text-color);
+  display: flex;
+
+  .sideContainer {
+    display: flex;
+    width: 100%;
+  }
+}

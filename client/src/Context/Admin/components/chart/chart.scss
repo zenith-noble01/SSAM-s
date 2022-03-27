@@ -1,0 +1,15 @@
+.chart {
+  width: 100%;
+  transition: var(--trans);
+  background: var(--white);
+  color: var(--pink);
+
+  .title {
+    margin-bottom: 20px;
+    color: var(--bg);
+  }
+
+  .chartGrid {
+    stroke: var(--pink);
+  }
+}

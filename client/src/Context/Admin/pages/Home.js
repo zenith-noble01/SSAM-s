@@ -3,11 +3,11 @@ import Side from "../components/side/Side";
 import Sidebar from "../components/sidebar/Sidebar";
 import "./Home.css";
 
-const Home = () => {
+const Home = ({ admin }) => {
   return (
     <div className="AdminHome">
-      <Sidebar />
-      <Side />
+      <Sidebar admin={admin} />
+      <Side admin={admin} />
     </div>
   );
 };

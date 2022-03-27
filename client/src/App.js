@@ -20,6 +20,7 @@ function App() {
   const [student, setStudent] = useState(undefined);
   const [admin, setAdmin] = useState(undefined);
 
+  // const admin = true;
   //get parent
   useEffect(() => {
     const data = async () => {
@@ -36,7 +37,7 @@ function App() {
     data();
   }, []);
 
-  //get admin
+  //get student
   useEffect(() => {
     const data = async () => {
       setStudent(await JSON.parse(localStorage.getItem("student")));
@@ -44,7 +45,7 @@ function App() {
     data();
   }, []);
 
-  //get student
+  //get admin
   useEffect(() => {
     const data = async () => {
       setAdmin(await JSON.parse(localStorage.getItem("admin")));
