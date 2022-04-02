@@ -1,9 +1,6 @@
-/* .background-color: #fad0c4;
-background-image: linear-gradient(315deg, #fad0c4 0%, #f1a7f1 74%); */
-
 .adminSidebar {
   width: 18%;
-  background: var(--white);
+  background: var(--black);
   height: 100vh;
   position: fixed;
   top: 0;
@@ -19,9 +16,10 @@ background-image: linear-gradient(315deg, #fad0c4 0%, #f1a7f1 74%); */
     justify-content: center;
     height: 50px;
     position: sticky;
-    background: var(--red);
+    background: var(--black);
     color: var(--white);
     transition: var(--trans);
+    border-bottom: var(--bord);
     margin-bottom: 30px;
     top: 0;
     z-index: 999;
@@ -41,7 +39,6 @@ background-image: linear-gradient(315deg, #fad0c4 0%, #f1a7f1 74%); */
       margin: 0;
       padding: 0;
       list-style: none;
-      // padding-left: 10px;
       li {
         padding: 8px 20px;
         transition: var(--trans);
@@ -50,26 +47,18 @@ background-image: linear-gradient(315deg, #fad0c4 0%, #f1a7f1 74%); */
         text-transform: capitalize;
         position: relative;
         display: flex;
+        color: var(--white);
         align-items: center;
         span {
           transition: var(--trans);
         }
         &:hover {
-          background: #fad0c4;
+          background: var(--light-white);
 
           span {
             margin-left: 10px;
           }
         }
-
-        // &::before {
-        //   content: "";
-        //   height: 100%;
-        //   width: 5px;
-        //   left: 0;
-        //   position: absolute;
-        //   background: red;
-        // }
       }
     }
   }
@@ -94,6 +83,7 @@ background-image: linear-gradient(315deg, #fad0c4 0%, #f1a7f1 74%); */
       display: flex;
       align-items: center;
       background: var(--light-white);
+      overflow: hidden;
       justify-content: center;
 
       .themesSwitcher {
@@ -103,30 +93,29 @@ background-image: linear-gradient(315deg, #fad0c4 0%, #f1a7f1 74%); */
         transition: var(--trans);
         display: flex;
         align-items: center;
+        cursor: pointer;
+        background: var(--light-white);
         justify-content: space-between;
+        position: relative;
 
         .light {
           transition: var(--trans);
-          height: 100%;
+          height: 80%;
           width: 48%;
           border-radius: 30px;
+          right: 0;
+          left: 5px;
           display: flex;
           align-items: center;
           justify-content: center;
+          position: absolute;
           cursor: pointer;
-          background: red;
-        }
-
-        .dark {
-          transition: var(--trans);
-          height: 100%;
-          width: 48%;
-          border-radius: 30px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          background: red;
+          background: var(--white);
+          &.dark {
+            background: var(--black);
+            color: var(--white);
+            left: 50%;
+          }
         }
       }
     }
@@ -146,7 +135,7 @@ background-image: linear-gradient(315deg, #fad0c4 0%, #f1a7f1 74%); */
         height: 40px;
         transition: var(--trans);
         border: var(--bord);
-        background: red;
+        background: var(--light-black);
         border-radius: 50%;
       }
       .details {
@@ -180,7 +169,7 @@ background-image: linear-gradient(315deg, #fad0c4 0%, #f1a7f1 74%); */
 
           &:hover span {
             transition: var(--trans);
-            background: red;
+            background: var(--light-white);
           }
           span {
             height: 5px;

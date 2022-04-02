@@ -4,14 +4,14 @@ import user from "../../../../images/logo.png";
 
 const Sidebar = ({ admin }) => {
   const [open, setOpen] = useState(false);
+  const [dark, setDark] = useState(false);
   console.log(admin);
   return (
     <div className="adminSidebar">
       <div className="logo">
-        <h1 className="title"> School cop Admin</h1>
+        <h1 className="title">School cop Admin</h1>
         <hr />
       </div>
-
       <div className="center">
         <ul>
           <li>
@@ -42,9 +42,10 @@ const Sidebar = ({ admin }) => {
       </div>
       <div className="bottomContainer">
         <div className="themeContainer">
-          <div className="themesSwitcher">
-            <div className="light">L</div>
-            <div className="dark"></div>
+          <div className="themesSwitcher" onClick={() => setDark(!dark)}>
+            <div className={dark ? "light dark" : "light"}>
+              {dark ? "D" : "L"}
+            </div>
           </div>
         </div>
         <div className="userProf">
@@ -61,7 +62,6 @@ const Sidebar = ({ admin }) => {
               <span></span>
               <span></span>
             </div>
-
             <div className={open ? "adminAcc op" : "adminAcc"}>
               <p>Profile</p>
               <p>Log out</p>
