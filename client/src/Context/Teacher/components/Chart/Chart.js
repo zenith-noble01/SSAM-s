@@ -30,17 +30,17 @@ const Chart = ({ aspect, title }) => {
         >
           <defs>
             <linearGradient id="total" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#333" stopOpacity={0.8} />
-              <stop offset="95%" stopColor="#333" stopOpacity={90} />
+              <stop offset="1%" stopColor="#1d6dfc" stopOpacity={0.8} />
+              <stop offset="95%" stopColor="#94cffd" stopOpacity={50} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="name" stroke="blue" />
+          <XAxis dataKey="name" stroke="#111" />
           <CartesianGrid strokeDasharray="3 3" className="chartGrid" />
           <Tooltip />
           <Area
             type="monotone"
             dataKey="Total"
-            stroke="red"
+            stroke="#1d6dfc"
             fillOpacity={1}
             fill="url(#total)"
           />

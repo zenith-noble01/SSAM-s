@@ -1,7 +1,7 @@
 :root {
   --main-color: #d3ad7f;
   --black: #333;
-  --b: #111;
+  --bold__black: #111;
   --bg: #010103;
   --text-color: whitesmoke;
   --border: 0.1rem solid rgba(255, 255, 255, 0.3);
@@ -15,7 +15,11 @@
   --red: #ff6f91;
   --pink: #faccff;
   --orange: #fbeaff;
+  --blue: #1d6dfc;
+  --blue__color: #94cffd;
   --white: #fff;
+  --teacher-side: #f3f5f7;
+  --teacher__outlet: white;
   /* --color: #ffc107; */
 }
 

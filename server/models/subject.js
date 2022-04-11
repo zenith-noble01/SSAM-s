@@ -6,11 +6,15 @@ const subjectSchema = mongoose.Schema(
       type: String,
       default: "",
     },
-    studentsOffering: {
+    students: {
       type: Array,
       default: [],
     },
-    teacherIn: {
+    classes: {
+      type: Array,
+      default: [],
+    },
+    teachers: {
       type: Array,
       default: [],
     },

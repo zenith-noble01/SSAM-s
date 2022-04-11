@@ -15,17 +15,13 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    childname: {
+    subject: {
       type: String,
       default: "",
     },
     classes: {
       type: Array,
       default: [],
-    },
-    subjectTeaching: {
-      type: String,
-      default: "",
     },
     pic: {
       type: String,

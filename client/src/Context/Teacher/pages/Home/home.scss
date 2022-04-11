@@ -1,0 +1,9 @@
+.Teacher {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .teacher__container {
+    width: 100%;
+  }
+}

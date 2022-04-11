@@ -6,6 +6,10 @@ const Sidebar = ({ admin }) => {
   const [open, setOpen] = useState(false);
   const [dark, setDark] = useState(false);
   console.log(admin);
+  const handleLogout = () => {
+    localStorage.clear("admin");
+    window.location.reload();
+  };
   return (
     <div className="adminSidebar">
       <div className="logo">
@@ -64,7 +68,7 @@ const Sidebar = ({ admin }) => {
             </div>
             <div className={open ? "adminAcc op" : "adminAcc"}>
               <p>Profile</p>
-              <p>Log out</p>
+              <p onClick={handleLogout}>Log out</p>
             </div>
           </div>
         </div>

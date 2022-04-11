@@ -1,0 +1,14 @@
+.app__students {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 70px);
+  width: 100%;
+
+  .students__title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    transition: var(--trans);
+    text-transform: capitalize;
+  }
+}

@@ -13,10 +13,17 @@ import AuthStudent from "./Context/Student/pages/auth/AuthStudent";
 import AuthTeacher from "./Context/Teacher/pages/auth/AuthTeacher";
 import Container from "./Context/Container";
 import AdminAuth from "./Context/Admin/pages/AdminAuth";
+import {
+  Classes,
+  Dashboard,
+  Meetings,
+  Students,
+  TakeAttendance,
+} from "./Context/Teacher";
 
 function App() {
   const [parent, setParent] = useState(undefined);
-  const [teacher, setTeacher] = useState(undefined);
+  // const [teacher, setTeacher] = useState(undefined);
   const [student, setStudent] = useState(undefined);
   const [admin, setAdmin] = useState(undefined);
 
@@ -30,12 +37,13 @@ function App() {
   }, []);
 
   //get teacher
-  useEffect(() => {
-    const data = async () => {
-      setTeacher(await JSON.parse(localStorage.getItem("teacher")));
-    };
-    data();
-  }, []);
+  // useEffect(() => {
+  //   const data = async () => {
+  //     setTeacher(await JSON.parse(localStorage.getItem("teacher")));
+  //   };
+  //   data();
+  // }, []);
+  const teacher = true;
 
   //get student
   useEffect(() => {
@@ -73,6 +81,25 @@ function App() {
           }
         />
         <Route path="authStudent" element={<AuthStudent />} />
+        <Route
+          path={
+            (teacher && "teacher") ||
+            (student && "student") ||
+            (parent && "parent")
+          }
+          element={<Container />}
+        >
+          {teacher && (
+            <>
+              <Route index element={<Dashboard />} />
+              <Route path="students" element={<Students />} />
+              <Route path="meetings" element={<Meetings />} />
+              <Route path="classes" element={<Classes />} />
+              <Route path="takeAttendance" element={<TakeAttendance />} />
+            </>
+          )}
+        </Route>
+
         <Route
           path="authTeacher"
           element={

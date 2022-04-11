@@ -1,5 +1,5 @@
 .chart {
-  background: var(--black);
+  background: var(--teacher-side);
   padding: 20px;
   color: gray;
   height: 250px;
@@ -11,6 +11,6 @@
   }
 
   .chartGrid {
-    stroke: rgb(228, 225, 225);
+    stroke: var(--blue__color);
   }
 }

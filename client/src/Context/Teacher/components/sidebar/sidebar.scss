@@ -1,0 +1,48 @@
+.Teacher__sidebar {
+  position: fixed;
+  float: left;
+  width: 20%;
+  background: var(--teacher-side);
+  color: var(--white);
+  top: 70px;
+  height: calc(100vh - 70px);
+  padding: 20px;
+  transition: var(--trans);
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .ul__links {
+      width: 100%;
+      padding: 0 10px;
+      cursor: pointer;
+      margin: 1rem 0;
+      color: var(--black);
+      height: 35px;
+      transition: var(--trans);
+      display: flex;
+      align-items: center;
+      border-radius: 5px;
+
+      &.activeLink {
+        background: var(--teacher__outlet);
+        color: var(--blue);
+      }
+
+      &:hover {
+        background: var(--teacher__outlet);
+        color: var(--blue);
+      }
+
+      a {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        transition: var(--trans);
+        align-items: center;
+      }
+    }
+  }
+}

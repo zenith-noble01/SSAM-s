@@ -3,7 +3,12 @@ import "./Navbar.css";
 import logo from "../../../../images/logo.png";
 import { Link } from "react-router-dom";
 
-const Navbar = ({ teacher }) => {
+const Navbar = () => {
+  const teacher = {
+    username: "zenith noble",
+    email: "zenithnoble354@gmail.com",
+    pic: logo,
+  };
   const [drop, setDrop] = useState(false);
   const handleSignOUt = () => {
     localStorage.removeItem("teacher");

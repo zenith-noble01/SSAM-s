@@ -6,11 +6,15 @@ const classSchema = mongoose.Schema(
       type: String,
       default: "",
     },
-    studentsIn: {
+    subjects: {
       type: Array,
       default: [],
     },
-    teachingSubjects: {
+    teachers: {
+      type: Array,
+      default: [],
+    },
+    students: {
       type: Array,
       default: [],
     },
