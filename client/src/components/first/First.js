@@ -14,17 +14,17 @@ const First = ({ over, setOver }) => {
 
       <ul className="firstWho">
         <li className="firstWhoItem">
-          <Link className="link" to="/authParent">
+          <Link className="link" to="/parentAuth">
             Parent
           </Link>
         </li>
         <li className="firstWhoItem">
-          <Link className="link" to="/AuthTeacher">
+          <Link className="link" to="/teacherAuth">
             Teacher
           </Link>
         </li>
         <li className="firstWhoItem">
-          <Link className="link" to="/AuthStudent">
+          <Link className="link" to="/studentAuth">
             Student
           </Link>
         </li>
@@ -36,17 +36,17 @@ const First = ({ over, setOver }) => {
             +
           </button>
           <button>
-            <Link className="link" to="/authParent">
+            <Link className="link" to="/parentAuth">
               Parent
             </Link>
           </button>
           <button>
-            <Link className="link" to="/AuthTeacher">
+            <Link className="link" to="/teacherAuth">
               Teacher
             </Link>
           </button>
           <button>
-            <Link className="link" to="/AuthStudent">
+            <Link className="link" to="/studentAuth">
               Student
             </Link>
           </button>

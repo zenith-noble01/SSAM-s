@@ -1,16 +1,3 @@
-const ToBe__Installed = {
-  // backend
-  zentih: "cors",
-  mles: "socket.io",
-  zend: "nodemon",
-  ex: "express",
-
-  //   client
-  //   react-copy-to-clipboard
-  //   simple-peer
-  //   socket.io-client
-};
-
 const app = require("express")();
 const socket = require("http").createServer(app);
 const cors = require("cors");
