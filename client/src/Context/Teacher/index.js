@@ -13,6 +13,8 @@ import TeacherAuth from "./pages/auth/AuthTeacher";
 import Messanger from "./pages/Messanger/Messanger";
 import Profile from "./pages/Profile/Profile";
 import Attendance from "./components/Attendance/Attendance";
+import DataTable from "./components/datatable/Datatable";
+import New from "./pages/New/New";
 
 export {
   Teacher,
@@ -30,4 +32,6 @@ export {
   TeacherAuth,
   Profile,
   Attendance,
+  New,
+  DataTable,
 };

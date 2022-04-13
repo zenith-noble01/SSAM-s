@@ -6,6 +6,8 @@ import "./app.css";
 import { NotFound } from "./components";
 import { AdminAuth } from "./Context/Admin";
 import { StudentAuth, StudentHome } from "./Context/Student";
+
+import { userInputs } from "./formSource";
 import {
   Classes,
   Dashboard,
@@ -17,6 +19,7 @@ import {
   TeacherHome,
   Attendance,
   Profile,
+  New,
 } from "./Context/Teacher";
 import { ParentHome } from "./Context/Parent";
 
@@ -87,6 +90,10 @@ const App = () => {
           <Route path="Meetings" element={<Meetings />} />
           <Route path="Profile" element={<Profile />} />
           <Route path="messages" element={<Messanger />} />
+          <Route
+            path="new"
+            element={<New inputs={userInputs} title="Add New User" />}
+          />
           <Route path="takeAttendance" element={<TakeAttendance />}>
             <Route path=":id" element={<Attendance />} />
           </Route>
