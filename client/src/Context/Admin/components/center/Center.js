@@ -1,15 +1,13 @@
 import React from "react";
 import "./center.scss";
-import Nav from "../navbar/Nav";
-import Top from "../Top/Top";
-import Chart from "../chart/Chart";
+import { Navbar, Top, Charts } from "../../";
 
 const Center = () => {
   return (
     <div className="Center">
-      <Nav />
+      <Navbar />
       <Top />
-      <Chart />
+      <Charts />
     </div>
   );
 };

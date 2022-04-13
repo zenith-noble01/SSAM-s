@@ -1,0 +1,16 @@
+.chart {
+  background: var(--teacher-side);
+  padding: 20px;
+  color: gray;
+  height: 250px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+
+  .title {
+    margin-bottom: 20px;
+  }
+
+  .chartGrid {
+    stroke: var(--blue__color);
+  }
+}

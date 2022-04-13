@@ -1,16 +1,15 @@
 import React from "react";
-import Admin from "./Admin/Admin";
-import Parent from "./Parent/pages/home/Parent";
-import Student from "./Student/pages/Home/Student";
-import { TeacherHome } from "./Teacher";
+import { Admin } from "./Admin";
+import { Parent } from "./Parent";
+import { Student } from "./Student";
+import { Teacher } from "./Teacher";
 
-const Container = ({ student, parent, admin }) => {
-  const teacher = true;
+const Container = ({ student, parent, teacher, admin }) => {
   return (
     <div>
       {teacher && (
         <div className="teacherContainer">
-          <TeacherHome />
+          <Teacher teacher={teacher} />
         </div>
       )}
 

@@ -1,29 +1,27 @@
-import "./app.css";
-import Navbar from "./Context/Parent/Components/Navbar/Navbar";
-import Auth from "./Context/Parent/pages/auth/Auth";
-import { Routes, Route } from "react-router-dom";
-import Context from "./context/Context";
-import Message from "./Context/Parent/Components/Message/Message";
-import NotFound from "./components/NotFound/NotFound";
-import Slide from "./Context/Parent/Components/Slides/Slide";
-import News from "./Context/Parent/Components/News/News";
-import Notifications from "./Context/Parent/Components/Notifications/Notifications";
-import { useEffect, useState } from "react";
-import AuthStudent from "./Context/Student/pages/auth/AuthStudent";
-import AuthTeacher from "./Context/Teacher/pages/auth/AuthTeacher";
+import React, { useEffect, useState } from "react";
 import Container from "./Context/Container";
-import AdminAuth from "./Context/Admin/pages/AdminAuth";
+import Context from "./context/Context";
+import { Route, Routes } from "react-router-dom";
+import "./app.css";
+import { NotFound } from "./components";
+import { AdminAuth } from "./Context/Admin";
+import { StudentAuth, StudentHome } from "./Context/Student";
 import {
   Classes,
   Dashboard,
   Meetings,
+  Messanger,
   Students,
   TakeAttendance,
+  TeacherAuth,
+  TeacherHome,
+  Attendance,
+  Profile,
 } from "./Context/Teacher";
 
-function App() {
+const App = () => {
   const [parent, setParent] = useState(undefined);
-  // const [teacher, setTeacher] = useState(undefined);
+  const [teacher, setTeacher] = useState(undefined);
   const [student, setStudent] = useState(undefined);
   const [admin, setAdmin] = useState(undefined);
 
@@ -35,15 +33,13 @@ function App() {
     };
     data();
   }, []);
-
-  //get teacher
-  // useEffect(() => {
-  //   const data = async () => {
-  //     setTeacher(await JSON.parse(localStorage.getItem("teacher")));
-  //   };
-  //   data();
-  // }, []);
-  const teacher = true;
+  //get
+  useEffect(() => {
+    const data = async () => {
+      setTeacher(await JSON.parse(localStorage.getItem("teacher")));
+    };
+    data();
+  }, []);
 
   //get student
   useEffect(() => {
@@ -63,16 +59,15 @@ function App() {
 
   return (
     <div className="app">
-      {parent ? <Navbar parent={parent} /> : null}
       <Routes>
         <Route
           index
           element={
             parent || teacher || student || admin ? (
               <Container
-                student={student}
                 parent={parent}
                 teacher={teacher}
+                student={student}
                 admin={admin}
               />
             ) : (
@@ -80,64 +75,30 @@ function App() {
             )
           }
         />
-        <Route path="authStudent" element={<AuthStudent />} />
-        <Route
-          path={
-            (teacher && "teacher") ||
-            (student && "student") ||
-            (parent && "parent")
-          }
-          element={<Container />}
-        >
-          {teacher && (
-            <>
-              <Route index element={<Dashboard />} />
-              <Route path="students" element={<Students />} />
-              <Route path="meetings" element={<Meetings />} />
-              <Route path="classes" element={<Classes />} />
-              <Route path="takeAttendance" element={<TakeAttendance />} />
-            </>
-          )}
+        <Route path="adminAuth" element={<AdminAuth />} />
+        <Route path="parentAuth" element={<parentAuth />} />
+        <Route path="studentAuth" element={<StudentAuth />} />
+        <Route path="teacherAuth" element={<TeacherAuth />} />
+
+        <Route path="teacher" element={<TeacherHome />}>
+          <Route index element={<Dashboard />} />
+          <Route path="Classes" element={<Classes />} />
+          <Route path="Meetings" element={<Meetings />} />
+          <Route path="Profile" element={<Profile />} />
+          <Route path="messages" element={<Messanger />} />
+          <Route path="takeAttendance" element={<TakeAttendance />}>
+            <Route path=":id" element={<Attendance />} />
+          </Route>
+          <Route path="students" element={<Students />} />
         </Route>
 
-        <Route
-          path="authTeacher"
-          element={
-            teacher ? (
-              <Container
-                admin={admin}
-                student={student}
-                parent={parent}
-                teacher={teacher}
-                z
-              />
-            ) : (
-              <AuthTeacher />
-            )
-          }
-        />
-        <Route path="AuthParent" element={parent ? <Container /> : <Auth />} />
-        <Route path="Message" element={parent ? <Message /> : <Auth />} />
-        <Route path="Slides" element={parent ? <Container /> : <Slide />} />
-        <Route
-          path="News"
-          element={parent || teacher || student ? <News /> : <Context />}
-        />
-        <Route
-          path="Notifications"
-          element={
-            parent || teacher || student ? <Notifications /> : <Context />
-          }
-        />
-        <Route
-          path="adminAuth"
-          element={admin ? <Container /> : <AdminAuth />}
-        />
-
+        <Route path="student" element={<StudentHome />}>
+          <Route index element={<Dashboard />} />
+        </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
-}
+};
 
 export default App;

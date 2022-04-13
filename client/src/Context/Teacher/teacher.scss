@@ -1,0 +1,56 @@
+.app__teacher-route {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  transition: var(--trans);
+  color: var(--text-color);
+  min-height: 100vh;
+  background: var(--black);
+
+  .app__teacher-desc {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .app__teacher-route__name {
+    font-size: 2.5em;
+    text-align: center;
+    width: 100%;
+
+    span {
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+  }
+
+  .app__teacher-selections {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+
+    .app__teacher-selectors {
+      background: var(--light-black);
+      margin-top: 20px;
+      padding: 10px;
+      width: 49.5%;
+      height: 50vh;
+      transition: var(--trans);
+      margin-bottom: 1rem;
+    }
+  }
+
+  .link {
+    button {
+      background: var(--light-black);
+      color: var(--text-color);
+      padding: 10px 2rem;
+      border: none;
+      cursor: pointer;
+      outline: none;
+    }
+  }
+}

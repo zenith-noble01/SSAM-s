@@ -1,6 +1,5 @@
 import React from "react";
-import Side from "../components/side/Side";
-import Sidebar from "../components/sidebar/Sidebar";
+import { Side, Sidebar } from "../../";
 import "./Home.css";
 
 const Home = ({ admin }) => {

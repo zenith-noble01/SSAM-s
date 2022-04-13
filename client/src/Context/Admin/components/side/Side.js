@@ -1,6 +1,5 @@
 import React from "react";
-import Center from "../center/Center";
-import Notice from "../notice/Notice";
+import { Center, Notice } from "../../";
 import "./side.scss";
 
 const Side = () => {

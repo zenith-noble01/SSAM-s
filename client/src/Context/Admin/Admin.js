@@ -1,6 +1,5 @@
 import React from "react";
-import "./Admin.css";
-import Home from "./pages/Home";
+import { Home } from "./";
 
 const Admin = ({ admin }) => {
   return (

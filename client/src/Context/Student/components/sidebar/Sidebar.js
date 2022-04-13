@@ -48,22 +48,6 @@ const Sidebar = () => {
             <span>TakeAttendance</span>
           </Link>
         </li>
-        <li
-          onClick={() => setActive(6)}
-          className={active === 6 ? "ul__links activeLink" : "ul__links"}
-        >
-          <Link className="link" to="/teacher/messages">
-            <span>Messages</span>
-          </Link>
-        </li>
-        <li
-          onClick={() => setActive(7)}
-          className={active === 7 ? "ul__links activeLink" : "ul__links"}
-        >
-          <Link className="link" to="/teacher/Profile">
-            <span>Profile</span>
-          </Link>
-        </li>
       </ul>
     </div>
   );
