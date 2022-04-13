@@ -18,6 +18,7 @@ import {
   Attendance,
   Profile,
 } from "./Context/Teacher";
+import { ParentHome } from "./Context/Parent";
 
 const App = () => {
   const [parent, setParent] = useState(undefined);
@@ -95,6 +96,7 @@ const App = () => {
         <Route path="student" element={<StudentHome />}>
           <Route index element={<Dashboard />} />
         </Route>
+        <Route path="parent" element={<ParentHome />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
