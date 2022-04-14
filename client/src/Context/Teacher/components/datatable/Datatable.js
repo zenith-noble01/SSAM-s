@@ -7,10 +7,6 @@ import axios from "axios";
 
 const Datatable = () => {
   const [data, setData] = useState([]);
-  const student = data.map((item) => {
-    return {
-    item
-  });
 
   useEffect(() => {
     const getStudent = async () => {
