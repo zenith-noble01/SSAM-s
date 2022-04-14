@@ -1,4 +1,4 @@
-import AuthParent from "./pages/auth/Auth";
+import ParentAuth from "./pages/auth/Auth";
 import ParentHome from "./pages/home/ParentHome";
 import Calender from "./Components/Calender/Calender";
 import Message from "./Components/Message/Message";
@@ -12,7 +12,7 @@ import Charts from "./Components/Charts/Charts";
 import Parent from "./Parent";
 
 export {
-  AuthParent,
+  ParentAuth,
   ParentHome,
   Calender,
   Parent,

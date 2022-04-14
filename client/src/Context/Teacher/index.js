@@ -18,6 +18,7 @@ import New from "./pages/New/New";
 import Meeting from "./pages/Meeting/Meeting";
 import StartMeeting from "./components/StartMeeting/StartMeeting";
 import MeetingTable from "./components/MeetingTable/MeetingTable";
+import Feedback from "./pages/Feedbacks/Feedbacks";
 
 export {
   Teacher,
@@ -39,5 +40,6 @@ export {
   DataTable,
   Meeting,
   StartMeeting,
+  Feedback,
   MeetingTable,
 };

@@ -7,7 +7,7 @@ import Feedback from "../../Components/Feedback/Feedback";
 
 const Parent = () => {
   return (
-    <div className="home">
+    <div className="app__parent-home">
       <Sidebar />
       <div className="homeContainer">
         <Chart />

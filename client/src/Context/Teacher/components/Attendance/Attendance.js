@@ -4,6 +4,7 @@ import axios from "axios";
 
 const Attendance = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState([]);
 
   useEffect(() => {
     const getStudent = async () => {
@@ -16,25 +17,51 @@ const Attendance = () => {
     getStudent();
   }, []);
 
-  console.log(data);
-
-  const handlePresent = (item) => {
-    const status = {
-      present: true,
-      message: `${item.studentname} was present in the Physics Class`,
-      id: item.id,
+  const handlePresent = async (item) => {
+    console.log(item);
+    const present = {
+      userId: item._id,
+      date: new Date(),
+      status: true,
+      message: "Present",
     };
 
-    console.log(status);
+    try {
+      await axios
+        .post("http://localhost:5000/api/attendance/takeattendance", present)
+        .then((res) => {
+          console.log(res.data);
+          setLoading(res.statusText);
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleAbsent = (item) => {
-    const status = {
-      present: false,
-      message: `${item.studentname} was absent in the Physics Class`,
-      id: item.id,
+    const absent = {
+      userId: item._id,
+      date: new Date(),
+      status: false,
+      message: "Absent",
     };
-    console.log(status);
+
+    try {
+      axios
+        .post("http://localhost:5000/api/attendance/takeattendance", absent)
+        .then((res) => {
+          console.log(res.data);
+          setLoading(res.statusText);
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -54,8 +81,10 @@ const Attendance = () => {
                 </div>
               </div>
               <div className="attendance__status">
-                <button onClick={() => handlePresent(item)}>Present</button>
-                <button onClick={() => handleAbsent(item)}>Absent</button>
+                <button onClick={() => handlePresent(item)}>
+                  {loading === "OK" ? <i className="fa fa-check" /> : "Present"}
+                </button>
+                <button onClick={() => handleAbsent(item)}></button>
               </div>
             </div>
           ))}

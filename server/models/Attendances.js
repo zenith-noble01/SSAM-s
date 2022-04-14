@@ -2,25 +2,22 @@ const mongoose = require("mongoose");
 
 const attendanceSchema = mongoose.Schema(
   {
-    parentname: {
-      type: String,
-      default: "",
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Student",
+      required: true,
     },
-    subjectname: {
-      type: String,
-      default: "",
+    date: {
+      type: Date,
+      required: true,
     },
-    childname: {
-      type: String,
-      default: "",
-    },
-    teachername: {
-      type: String,
-      default: "",
-    },
-    present: {
+    status: {
       type: Boolean,
-      default: false,
+      required: true,
+    },
+    message: {
+      type: String,
+      required: true,
     },
   },
   {

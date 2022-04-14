@@ -1,7 +1,7 @@
-.home {
+.app__parent-home {
   display: flex;
   padding: 13px 10% 10px 10%;
-  height: calc(100vh - 70px);
+  min-height: 100vh;
   /* background: red; */
 }
 

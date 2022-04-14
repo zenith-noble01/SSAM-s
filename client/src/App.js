@@ -22,7 +22,7 @@ import {
   New,
   Meeting,
 } from "./Context/Teacher";
-import { ParentHome } from "./Context/Parent";
+import { ParentAuth, ParentHome } from "./Context/Parent";
 
 const App = () => {
   const [parent, setParent] = useState(undefined);
@@ -81,7 +81,7 @@ const App = () => {
           }
         />
         <Route path="adminAuth" element={<AdminAuth />} />
-        <Route path="parentAuth" element={<parentAuth />} />
+        <Route path="parentAuth" element={<ParentAuth />} />
         <Route path="studentAuth" element={<StudentAuth />} />
         <Route path="teacherAuth" element={<TeacherAuth />} />
 
