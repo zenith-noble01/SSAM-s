@@ -1,11 +1,28 @@
 import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { userColumns, userRows } from "../datatablesource";
+import { userColumns } from "../datatablesource";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Datatable = () => {
-  const [data, setData] = useState(userRows);
+  const [data, setData] = useState([]);
+  const student = data.map((item) => {
+    return {
+    item
+  });
+
+  useEffect(() => {
+    const getStudent = async () => {
+      const { data } = await axios.get(
+        "http://localhost:5000/api/authStudent/studentclass/Lss"
+      );
+      setData(data);
+    };
+    getStudent();
+  }, []);
+
+  console.log(data);
 
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
@@ -46,7 +63,7 @@ const Datatable = () => {
         rows={data}
         columns={userColumns.concat(actionColumn)}
         pageSize={9}
-        rowsPerPageOptions={[9]}
+        rowsPerPageOptions={[5]}
         checkboxSelection
       />
     </div>

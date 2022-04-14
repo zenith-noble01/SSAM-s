@@ -15,6 +15,9 @@ import Profile from "./pages/Profile/Profile";
 import Attendance from "./components/Attendance/Attendance";
 import DataTable from "./components/datatable/Datatable";
 import New from "./pages/New/New";
+import Meeting from "./pages/Meeting/Meeting";
+import StartMeeting from "./components/StartMeeting/StartMeeting";
+import MeetingTable from "./components/MeetingTable/MeetingTable";
 
 export {
   Teacher,
@@ -34,4 +37,7 @@ export {
   Attendance,
   New,
   DataTable,
+  Meeting,
+  StartMeeting,
+  MeetingTable,
 };

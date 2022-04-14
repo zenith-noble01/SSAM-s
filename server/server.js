@@ -17,6 +17,7 @@ app.use(express.json());
 app.use("/api/authParent", require("./routes/auth"));
 app.use("/api/authTeacher", require("./routes/Teacher/auth"));
 app.use("/api/authAdmin", require("./routes/admin/auth"));
+app.use("/api/authStudent", require("./routes/Student/auth"));
 app.use("/api/attendance", require("./routes/Teacher/Checkattendance"));
 
 app.listen(PORT, () => {

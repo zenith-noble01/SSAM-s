@@ -20,6 +20,7 @@ import {
   Attendance,
   Profile,
   New,
+  Meeting,
 } from "./Context/Teacher";
 import { ParentHome } from "./Context/Parent";
 
@@ -87,7 +88,9 @@ const App = () => {
         <Route path="teacher" element={<TeacherHome />}>
           <Route index element={<Dashboard />} />
           <Route path="Classes" element={<Classes />} />
-          <Route path="Meetings" element={<Meetings />} />
+          <Route path="Meetings" element={<Meetings />}>
+            <Route path=":id" element={<Meeting />} />
+          </Route>
           <Route path="Profile" element={<Profile />} />
           <Route path="messages" element={<Messanger />} />
           <Route

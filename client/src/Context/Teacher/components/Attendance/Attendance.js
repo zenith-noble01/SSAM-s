@@ -28,7 +28,7 @@ const Attendance = () => {
               </div>
             </div>
             <div className="attendance__status">
-              <button onClick={handlePresent}>Present</button>
+              <button onClick={() => handlePresent(item)}>Present</button>
               <button>Absent</button>
             </div>
           </div>
