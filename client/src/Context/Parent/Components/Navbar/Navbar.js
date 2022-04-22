@@ -22,7 +22,7 @@ const Navbar = ({ parent }) => {
         <div className="centerNav">
           <ul>
             <div className="centnav__links">
-              <Link className="link" to="/">
+              <Link className="link" to="/parent">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-6 w-6"
@@ -41,7 +41,7 @@ const Navbar = ({ parent }) => {
               </Link>
             </div>
             <div className="centnav__links">
-              <Link className="link" to="/Message">
+              <Link className="link" to="/parent/message">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-6 w-6"
@@ -60,7 +60,7 @@ const Navbar = ({ parent }) => {
               </Link>
             </div>
             <div className="centnav__links">
-              <Link className="link" to="/Notifications">
+              <Link className="link" to="/parent/Notifications">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-6 w-6"
@@ -79,7 +79,7 @@ const Navbar = ({ parent }) => {
               </Link>
             </div>
             <div className="centnav__links">
-              <Link className="link" to="/News">
+              <Link className="link" to="/parent/News">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-6 w-6"

@@ -74,5 +74,15 @@ module.exports.getStudentByParent = async (req, res, next) => {
   }
 };
 
+module.exports.geAllStudents = async (req, res, next) => {
+  try {
+    const students = await User.find();
+    if (!students) return res.json({ msg: "Student not found", status: false });
+    return res.json({ status: true, students });
+  } catch (ex) {
+    next(ex);
+  }
+};
+
 //remember your dream
 //im the greatest

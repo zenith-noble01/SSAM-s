@@ -1,21 +1,13 @@
 import React from "react";
-import "./Parent.css";
-import Sidebar from "../../Components/Sidebar/Sidebar";
-import Chart from "../../Components/Charts/Charts";
-import Calender from "../../Components/Calender/Calender";
-import Feedback from "../../Components/Feedback/Feedback";
+import "./Parent.scss";
+import Navbar from "../../Components/Navbar/Navbar";
+import { Outlet } from "react-router-dom";
 
-const Parent = () => {
+const Parent = ({ parent }) => {
   return (
     <div className="app__parent-home">
-      <Sidebar />
-      <div className="homeContainer">
-        <Chart />
-        <div className="bottom__homeContainer">
-          <Calender />
-          <Feedback />
-        </div>
-      </div>
+      <Navbar parent={parent} />
+      <Outlet />
     </div>
   );
 };

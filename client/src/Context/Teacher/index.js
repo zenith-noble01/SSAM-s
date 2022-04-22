@@ -10,7 +10,7 @@ import Wrapper from "./components/Wrapper/Wrapper";
 import Chart from "./components/Chart/Chart";
 import Table from "./components/Table/Table";
 import TeacherAuth from "./pages/auth/AuthTeacher";
-import Messanger from "./pages/Messanger/Messanger";
+import Messanger from "./pages/Messager/Message";
 import Profile from "./pages/Profile/Profile";
 import Attendance from "./components/Attendance/Attendance";
 import DataTable from "./components/datatable/Datatable";
@@ -19,6 +19,7 @@ import Meeting from "./pages/Meeting/Meeting";
 import StartMeeting from "./components/StartMeeting/StartMeeting";
 import MeetingTable from "./components/MeetingTable/MeetingTable";
 import Feedback from "./pages/Feedbacks/Feedbacks";
+import Conversation from "./components/conversations/Conversation";
 
 export {
   Teacher,
@@ -41,5 +42,6 @@ export {
   Meeting,
   StartMeeting,
   Feedback,
+  Conversation,
   MeetingTable,
 };

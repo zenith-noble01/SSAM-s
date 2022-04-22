@@ -38,11 +38,32 @@ module.exports.register = async (req, res, next) => {
   }
 };
 
-module.exports.logOut = (req, res, next) => {
+module.exports.getTeacher = async (req, res, next) => {
   try {
-    if (!req.params.id) return res.json({ msg: "User id is required " });
-    onlineUsers.delete(req.params.id);
-    return res.status(200).send();
+    const teacher = await User.findOne({ username: req.params.username });
+    if (!teacher) return res.json({ msg: "Teacher not found", status: false });
+    return res.json({ status: true, teacher });
+  } catch (ex) {
+    next(ex);
+  }
+};
+
+module.exports.getTeacherByClass = async (req, res, next) => {
+  const classname = req.params.classname;
+  try {
+    const teachers = await User.find({ classname });
+    if (!teachers) return res.json({ msg: "Teacher not found", status: false });
+    return res.json({ status: true, teachers });
+  } catch (ex) {
+    next(ex);
+  }
+};
+
+module.exports.getAllTeachers = async (req, res, next) => {
+  try {
+    const teachers = await User.find();
+    if (!teachers) return res.json({ msg: "Teacher not found", status: false });
+    return res.json({ status: true, teachers });
   } catch (ex) {
     next(ex);
   }

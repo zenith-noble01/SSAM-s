@@ -22,7 +22,14 @@ import {
   New,
   Meeting,
 } from "./Context/Teacher";
-import { ParentAuth, ParentHome } from "./Context/Parent";
+import {
+  News,
+  Notifications,
+  ParentAuth,
+  ParentHome,
+  ParentHouse,
+  ParentMessage,
+} from "./Context/Parent";
 
 const App = () => {
   const [parent, setParent] = useState(undefined);
@@ -85,14 +92,14 @@ const App = () => {
         <Route path="studentAuth" element={<StudentAuth />} />
         <Route path="teacherAuth" element={<TeacherAuth />} />
 
-        <Route path="teacher" element={<TeacherHome />}>
+        <Route path="teacher" element={<TeacherHome teacher={teacher} />}>
           <Route index element={<Dashboard />} />
           <Route path="Classes" element={<Classes />} />
           <Route path="Meetings" element={<Meetings />}>
             <Route path=":id" element={<Meeting />} />
           </Route>
           <Route path="Profile" element={<Profile />} />
-          <Route path="messages" element={<Messanger />} />
+          <Route path="messages" element={<Messanger user={teacher} />} />
           <Route
             path="new"
             element={<New inputs={userInputs} title="Add New User" />}
@@ -106,7 +113,12 @@ const App = () => {
         <Route path="student" element={<StudentHome />}>
           <Route index element={<Dashboard />} />
         </Route>
-        <Route path="parent" element={<ParentHome />} />
+        <Route path="parent" element={<ParentHome parent={parent} />}>
+          <Route index element={<ParentHouse />} />
+          <Route path="Message" element={<ParentMessage />} />
+          <Route path="News" element={<News />} />
+          <Route path="Notifications" element={<Notifications />} />
+        </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

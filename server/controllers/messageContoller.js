@@ -1,24 +1,23 @@
 const Message = require("../models/Message");
 
 module.exports.createMessge = async (req, res) => {
+  const newMessage = new Message(req.body);
+
   try {
-    const message = await Message.create(req.body);
-    res.status(200).json(message);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+    const savedMessage = await newMessage.save();
+    res.status(200).json(savedMessage);
+  } catch (err) {
+    res.status(500).json(err);
   }
 };
 
-module.exports.getMessages = async (req, res) => {
+module.exports.getMessagesByConversationId = async (req, res) => {
   try {
     const messages = await Message.find({
-      $or: [
-        { sender: req.params.senderId, receiver: req.params.receiverId },
-        { sender: req.params.receiverId, receiver: req.params.senderId },
-      ],
+      conversationId: req.params.conversationId,
     });
     res.status(200).json(messages);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+  } catch (err) {
+    res.status(500).json(err);
   }
 };

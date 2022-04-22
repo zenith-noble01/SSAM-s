@@ -14,11 +14,14 @@ app.use(cors());
 app.use(morgan("dev"));
 
 app.use(express.json());
-app.use("/api/authParent", require("./routes/auth"));
+app.use("/api/authParent", require("./routes/parent/auth"));
 app.use("/api/authTeacher", require("./routes/Teacher/auth"));
 app.use("/api/authAdmin", require("./routes/admin/auth"));
 app.use("/api/authStudent", require("./routes/Student/auth"));
 app.use("/api/attendance", require("./routes/Teacher/Checkattendance"));
+app.use("/api/feedbacks", require("./routes/Feedbacks"));
+app.use("/api/message", require("./routes/Message"));
+app.use("/api/conversation", require("./routes/Conversation"));
 
 app.listen(PORT, () => {
   console.log(`server is running on ${PORT}`);
