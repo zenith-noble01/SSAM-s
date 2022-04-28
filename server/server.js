@@ -9,7 +9,11 @@ const morgan = require("morgan");
 
 const PORT = process.env.PORT || 5000;
 connectDb();
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 app.use(morgan("dev"));
 
