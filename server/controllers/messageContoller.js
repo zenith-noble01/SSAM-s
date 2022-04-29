@@ -1,23 +1,65 @@
 const Message = require("../models/Message");
 
-module.exports.createMessge = async (req, res) => {
-  const newMessage = new Message(req.body);
-
-  try {
-    const savedMessage = await newMessage.save();
-    res.status(200).json(savedMessage);
-  } catch (err) {
-    res.status(500).json(err);
-  }
+module.exports.createMessage = function (req, res) {
+  const { sender, receiver, message } = req.body;
+  const newMessage = new Message({
+    sender,
+    receiver,
+    message,
+  });
+  newMessage.save((err, message) => {
+    if (err) {
+      return res.status(400).json({
+        error: errorHandler(err),
+      });
+    }
+    res.json(message);
+  });
 };
 
-module.exports.getMessagesByConversationId = async (req, res) => {
-  try {
-    const messages = await Message.find({
-      conversationId: req.params.conversationId,
+module.exports.getMessage = function (req, res) {
+  const { sender, receiver } = req.body;
+  Message.find({
+    $or: [
+      { sender: sender, receiver: receiver },
+      { sender: receiver, receiver: sender },
+    ],
+  })
+    .populate("sender", "_id name")
+    .populate("receiver", "_id name")
+    .exec((err, message) => {
+      if (err) {
+        return res.status(400).json({
+          error: errorHandler(err),
+        });
+      }
+      res.json(message);
     });
-    res.status(200).json(messages);
-  } catch (err) {
-    res.status(500).json(err);
-  }
+};
+
+module.exports.getMessageById = function (req, res) {
+  Message.findById(req.params.id, (err, message) => {
+    if (err) {
+      return res.status(400).json({
+        error: errorHandler(err),
+      });
+    }
+    res.json(message);
+  });
+};
+
+module.exports.updateMessage = function (req, res) {
+  Message.findByIdAndUpdate(
+    req.params.id,
+    { $set: req.body },
+    { new: true },
+    (err, message) => {
+      if (err) {
+        return res.status(400).json({
+          error: errorHandler(err),
+        });
+      }
+      res.json(message);
+    }
+  );
 };

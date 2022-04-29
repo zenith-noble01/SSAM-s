@@ -49,9 +49,9 @@ const Auth = () => {
       return toast.error("Passwords don't match", toastOptions);
     } else {
       const parent = {
-        username: username.current.value,
-        email: email.current.value,
-        password: password.current.value,
+        username,
+        email,
+        password,
       };
       console.log(parent);
       try {

@@ -26,6 +26,9 @@ app.use("/api/attendance", require("./routes/Teacher/Checkattendance"));
 app.use("/api/feedbacks", require("./routes/Feedbacks"));
 app.use("/api/message", require("./routes/Message"));
 app.use("/api/conversation", require("./routes/Conversation"));
+app.use("/", (req, res) => {
+  res.send("hello");
+});
 
 app.listen(PORT, () => {
   console.log(`server is running on ${PORT}`);

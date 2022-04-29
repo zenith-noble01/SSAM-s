@@ -1,24 +1,27 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Message.css";
 import Sender from "./Sender";
+import { host } from "../../../../api/admin";
 
-const MessageSidebar = ({ openConversation, conversation, user }) => {
-  console.log(conversation);
+const MessageSidebar = ({
+  messages,
+  setReceiver,
+  user,
+  setCurrentChat,
+  currentChat,
+}) => {
+  const [conversation, setConversation] = useState(false);
   useEffect(() => {
-    const message = conversation;
-    console.log(message);
-    const getUser = async () => {
-      try {
-        const res = await axios.get(`http://localhost:5000/api//${user._id}`);
-        console.log(res.data);
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-
-    getUser();
-  });
+    axios
+      .get(`${host}/api/message/conversation/`)
+      .then((res) => {
+        // setMessages(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div className="MessageSidebar">
@@ -45,8 +48,8 @@ const MessageSidebar = ({ openConversation, conversation, user }) => {
         {conversation.map((conversation) => (
           <Sender
             key={conversation._id}
-            conversation={conversation}
-            openConversation={openConversation}
+            // conversation={conversation}
+            // openConversation={openConversation}
           />
         ))}
       </div>

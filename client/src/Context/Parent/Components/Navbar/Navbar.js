@@ -1,9 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import logo from "../../../../images/logo.png";
 import { Link } from "react-router-dom";
 
-const Navbar = ({ parent }) => {
+const Navbar = () => {
+  const [parent, setParent] = useState({});
+
+  useEffect(() => {
+    const data = async () => {
+      setParent(await JSON.parse(localStorage.getItem("parent")));
+    };
+    data();
+  }, []);
+
+  console.log(parent);
   const [drop, setDrop] = useState(false);
   const handleSignOUt = () => {
     localStorage.removeItem("parent");
