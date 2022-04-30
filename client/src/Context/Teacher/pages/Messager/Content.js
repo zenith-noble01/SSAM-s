@@ -94,7 +94,9 @@ const Content = ({ own, chat, user }) => {
             <div
               key={index}
               className={
-                own === user._id ? "text__message me" : "text__message receiver"
+                own === message.user
+                  ? "text__message me"
+                  : "text__message receiver"
               }
             >
               <p>{message.text}</p>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Content from "./Content";
 import "./Message.css";
 import robot from "../../../../images/robot.gif";
@@ -10,10 +10,6 @@ const Message = ({ user }) => {
   const openConversation = (con) => {
     setCurrentChat(con);
   };
-
-  useEffect(() => {
-    openConversation();
-  }, [currentChat]);
 
   return (
     <div className="message">
