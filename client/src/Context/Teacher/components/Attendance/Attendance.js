@@ -24,14 +24,12 @@ const Attendance = () => {
       date: new Date(),
       status: true,
       message: "Present",
+      email: item.email,
     };
 
     try {
       await axios
-        .post(
-          "https://schoolcop.herokuapp.com/api/attendance/takeattendance",
-          present
-        )
+        .post("http://localhost:5000/api/attendance/takeattendance", present)
         .then((res) => {
           console.log(res.data);
           setLoading(res.data);
@@ -89,7 +87,7 @@ const Attendance = () => {
               </div>
               <div className="attendance__status">
                 <button onClick={() => handlePresent(item)}>
-                  {loading.newAttendance.userId === item._id ? (
+                  {loading?.newAttendance?.userId === item._id ? (
                     <i className="fa fa-check" />
                   ) : (
                     "Present"

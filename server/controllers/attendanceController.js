@@ -1,7 +1,12 @@
 const Attendance = require("../models/Attendances");
+const sgMail = require("@sendgrid/mail");
+
+sgMail.setApiKey(
+  "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"
+);
 
 module.exports.Attendance = async (req, res) => {
-  const { userId, date, status, message } = req.body;
+  const { userId, date, status, message, email } = req.body;
   try {
     const attendance = await Attendance.find({
       userId: userId,
@@ -18,7 +23,25 @@ module.exports.Attendance = async (req, res) => {
       status: status,
       message: message,
     });
+    const msg = {
+      to: email,
+      from: "contact@ssams.com", // Use the email address or domain you verified above
+      subject: newAttendance.message,
+      text: "Attendance",
+      html: `<strong>Hello ${req.body.parentName} your child ${req.body.studentname} was present to day </strong>  `,
+    };
     await newAttendance.save();
+
+    sgMail.send(msg).then(
+      () => {},
+      (error) => {
+        console.error(error.message);
+
+        if (error.response) {
+          console.error(error.response.body);
+        }
+      }
+    );
     return res.status(200).json({
       newAttendance: newAttendance,
       message: "Attendance marked successfully",
