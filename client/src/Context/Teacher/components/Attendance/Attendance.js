@@ -9,7 +9,7 @@ const Attendance = () => {
   useEffect(() => {
     const getStudent = async () => {
       await axios
-        .get("http://localhost:5000/api/authStudent/studentclass/Lss")
+        .get("https://schoolcop.herokuapp.com/api/authStudent/studentclass/Lss")
         .then((res) => {
           setData(res.data.students);
         });
@@ -28,7 +28,10 @@ const Attendance = () => {
 
     try {
       await axios
-        .post("http://localhost:5000/api/attendance/takeattendance", present)
+        .post(
+          "https://schoolcop.herokuapp.com/api/attendance/takeattendance",
+          present
+        )
         .then((res) => {
           console.log(res.data);
           setLoading(res.statusText);
@@ -51,7 +54,10 @@ const Attendance = () => {
 
     try {
       axios
-        .post("http://localhost:5000/api/attendance/takeattendance", absent)
+        .post(
+          "https://schoolcop.herokuapp.com/api/attendance/takeattendance",
+          absent
+        )
         .then((res) => {
           console.log(res.data);
           setLoading(res.statusText);
