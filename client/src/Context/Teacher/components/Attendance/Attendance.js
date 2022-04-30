@@ -34,7 +34,8 @@ const Attendance = () => {
         )
         .then((res) => {
           console.log(res.data);
-          setLoading(res.statusText);
+          setLoading(res.data);
+          console.log(loading);
         })
         .catch((err) => {
           console.log(err.message);
@@ -88,7 +89,11 @@ const Attendance = () => {
               </div>
               <div className="attendance__status">
                 <button onClick={() => handlePresent(item)}>
-                  {loading === "OK" ? <i className="fa fa-check" /> : "Present"}
+                  {loading.newAttendance.userId === item._id ? (
+                    <i className="fa fa-check" />
+                  ) : (
+                    "Present"
+                  )}
                 </button>
                 <button onClick={() => handleAbsent(item)}>Absent</button>
               </div>
