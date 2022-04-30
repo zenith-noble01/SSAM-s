@@ -90,7 +90,7 @@ const Attendance = () => {
                 <button onClick={() => handlePresent(item)}>
                   {loading === "OK" ? <i className="fa fa-check" /> : "Present"}
                 </button>
-                <button onClick={() => handleAbsent(item)}></button>
+                <button onClick={() => handleAbsent(item)}>Absent</button>
               </div>
             </div>
           ))}
