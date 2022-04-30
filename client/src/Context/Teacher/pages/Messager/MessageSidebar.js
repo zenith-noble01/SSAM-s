@@ -4,24 +4,22 @@ import "./Message.css";
 import Sender from "./Sender";
 import { host } from "../../../../api/admin";
 
-const MessageSidebar = ({
-  messages,
-  setReceiver,
-  user,
-  setCurrentChat,
-  currentChat,
-}) => {
-  const [conversation, setConversation] = useState(false);
+const MessageSidebar = ({ openConversation }) => {
+  const [chat, setChat] = useState([]);
+
   useEffect(() => {
-    axios
-      .get(`${host}/api/message/conversation/`)
-      .then((res) => {
-        // setMessages(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const getChat = async () => {
+      try {
+        const res = await axios.get(`${host}/api/rooms`);
+        setChat(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getChat();
   }, []);
+
+  const chatdata = chat?.data;
 
   return (
     <div className="MessageSidebar">
@@ -45,11 +43,12 @@ const MessageSidebar = ({
         </div>
       </div>
       <div className="messages">
-        {conversation.map((conversation) => (
+        {chatdata?.map((chat) => (
           <Sender
-            key={conversation._id}
-            // conversation={conversation}
-            // openConversation={openConversation}
+            key={chat._id}
+            id={chat._id}
+            chat={chat}
+            openConversation={openConversation}
           />
         ))}
       </div>

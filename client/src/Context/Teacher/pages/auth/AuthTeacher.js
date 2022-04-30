@@ -38,11 +38,6 @@ const Auth = () => {
     window.open("http://localhost:5000/auth/facebook", "_self");
   };
 
-  // const username = useRef();
-  // const email = useRef();
-  // const password = useRef();
-  // const passwordAgain = useRef();
-
   const handleRegister = async (e) => {
     e.preventDefault();
     if (passwordAgain !== password) {

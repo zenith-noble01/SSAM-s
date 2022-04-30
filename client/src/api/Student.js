@@ -1,4 +1,4 @@
-const host = "https://schoolcop-v2.herokuapp.com";
+const host = "https://schoolcop.herokuapp.com";
 
 export const registerRoute = `${host}/api/authStudent/register`;
 export const loginRoute = `${host}/api/authStudent/login`;

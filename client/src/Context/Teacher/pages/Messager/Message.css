@@ -159,12 +159,15 @@
 
 .messageCont .senderMessage {
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 300;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+}
+.messageCont .senderMessage::first-letter {
+  text-transform: uppercase;
 }
 
 .Profile {

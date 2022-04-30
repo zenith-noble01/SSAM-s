@@ -1,17 +1,18 @@
 import React from "react";
-import zenith from "../.../../../../../images/logo.png";
 import "./Message.css";
 
-const Sender = ({ openConversation }) => {
+const Sender = ({ openConversation, chat }) => {
   return (
-    <div className="sender" onClick={openConversation}>
+    <div
+      className="sender"
+      onClick={() => openConversation(chat)}
+      id={chat._id}
+    >
       <div className="senderContaier">
-        <img src={zenith} alt="" />
+        <img src={chat.image} alt="" />
         <div className="messageCont">
-          <p>zenith</p>
-          <p className="senderMessage">
-            zenith noble is here with the main guys of the afcon
-          </p>
+          <p>{chat.name}</p>
+          <p className="senderMessage">{chat.description}</p>
         </div>
       </div>
     </div>

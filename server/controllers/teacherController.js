@@ -1,5 +1,5 @@
 const User = require("../models/Teacher/Teacher");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 module.exports.login = async (req, res, next) => {
   try {

@@ -3,41 +3,27 @@ import Content from "./Content";
 import "./Message.css";
 import robot from "../../../../images/robot.gif";
 import MessageSidebar from "./MessageSidebar";
-import axios from "axios";
 
 const Message = ({ user }) => {
-  const [messages, setMessages] = useState([]);
-  const [message, setMessage] = useState("");
-  const [receiver, setReceiver] = useState("");
-  const [conversation, setConversation] = useState([]);
-  const [currentChat, setCurrentChat] = useState("");
+  const [currentChat, setCurrentChat] = useState(false);
+
+  const openConversation = (con) => {
+    setCurrentChat(con);
+  };
 
   useEffect(() => {
-    axios
-      .get("/api/message/conversation/")
-      .then((res) => {
-        setMessages(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+    openConversation();
+  }, [currentChat]);
 
   return (
     <div className="message">
       <div className="messageContainer">
         <div className="MessageSide">
-          <MessageSidebar
-            messages={messages}
-            setReceiver={setReceiver}
-            user={user}
-            setCurrentChat={setCurrentChat}
-            currentChat={currentChat}
-          />
+          <MessageSidebar openConversation={openConversation} />
         </div>
         <div className="MessageContent">
           {currentChat ? (
-            <Content own={true} user={user} />
+            <Content own={user._id} user={user} chat={currentChat} />
           ) : (
             <div className="noMessage">
               <div className="noMessageContainer">

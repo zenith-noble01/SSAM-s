@@ -1,17 +1,42 @@
 import React, { useState } from "react";
 import "./Message.css";
-import zenith from "../.../../../../../images/logo.png";
+import axios from "axios";
+import { host } from "../../../../api/Teacher";
 
-const Content = ({ own }) => {
-  console.log(own);
+const Content = ({ own, chat, user }) => {
+  console.log(chat.messages);
+  const [input, setInput] = useState("");
+  const [messages, setMessages] = useState(chat.messages);
+  const handleChange = (e) => {
+    setInput(e.target.value);
+  };
   const [call, setCall] = useState(false);
+
+  const handleSend = async (e) => {
+    e.preventDefault();
+    try {
+      await axios
+        .put(`${host}/api/rooms/${chat._id}`, {
+          text: input,
+          user: user._id,
+          room: chat._id,
+        })
+        .then((res) => {
+          console.log(res.data);
+          // setMessages([...messages, res.data]);
+          setInput("");
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="Content">
       <div className="ContentContainer">
         <div className="contentTop">
           <div className="userInfo">
-            <img src={zenith} alt="" />
-            <p>Zenith noble</p>
+            <img src={chat.image} alt="" />
+            <p>{chat.name}</p>
           </div>
           <div className="top__items">
             <div className="calls calls__audio" onClick={() => setCall(!call)}>
@@ -65,20 +90,24 @@ const Content = ({ own }) => {
           </div>
         </div>
         <div className="Messages__container">
-          <div className={own ? "text__message me" : "text__message receiver"}>
-            <p>
-              zenith is here with the main organisation of the cocan Industry
-            </p>
-          </div>
-          <div className="text__message receiver">
-            <p>
-              zenith is here with the main organisation of the cocan Industry
-            </p>
-          </div>
+          {messages.map((message, index) => (
+            <div
+              key={index}
+              className={
+                own === user._id ? "text__message me" : "text__message receiver"
+              }
+            >
+              <p>{message.text}</p>
+            </div>
+          ))}
         </div>
         <div className="sendMessage__Container">
-          <textarea placeholder="Write message"></textarea>
-          <button>send</button>
+          <textarea
+            placeholder="Write message"
+            value={input}
+            onChange={handleChange}
+          />
+          <button onClick={handleSend}>send</button>
         </div>
       </div>
     </div>
